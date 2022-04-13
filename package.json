@@ -1,6 +1,6 @@
 {
   "name": "ngx-devs-cli",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "ngx-devs-cli CLI",
   "types": "build/types/types.d.ts",
   "bin": {
