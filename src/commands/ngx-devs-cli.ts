@@ -1,22 +1,29 @@
 import { GluegunCommand } from 'gluegun';
 
-const command: GluegunCommand = {
+import { ASCII_ART } from '../utils/cli-ascii.const';
+
+const COMMAND: GluegunCommand = {
   name: 'ngx-devs-cli',
+  alias: ['ngxd'],
+  description: 'Inicializa a CLI do NgxDevs',
   run: async (toolbox) => {
     const { print } = toolbox
-
-    const ASCII_ART = `
-    ███╗░░██╗░██████╗░██╗░░██╗░░░░░░██████╗░███████╗██╗░░░██╗░██████╗  ░█████╗░██╗░░░░░██╗
-    ████╗░██║██╔════╝░╚██╗██╔╝░░░░░░██╔══██╗██╔════╝██║░░░██║██╔════╝  ██╔══██╗██║░░░░░██║
-    ██╔██╗██║██║░░██╗░░╚███╔╝░█████╗██║░░██║█████╗░░╚██╗░██╔╝╚█████╗░  ██║░░╚═╝██║░░░░░██║
-    ██║╚████║██║░░╚██╗░██╔██╗░╚════╝██║░░██║██╔══╝░░░╚████╔╝░░╚═══██╗  ██║░░██╗██║░░░░░██║
-    ██║░╚███║╚██████╔╝██╔╝╚██╗░░░░░░██████╔╝███████╗░░╚██╔╝░░██████╔╝  ╚█████╔╝███████╗██║
-    ╚═╝░░╚══╝░╚═════╝░╚═╝░░╚═╝░░░░░░╚═════╝░╚══════╝░░░╚═╝░░░╚═════╝░  ░╚════╝░╚══════╝╚═╝`
+    const version = require('../../package.json').version
 
     print.info(ASCII_ART)
-    print.info('Commands:')
+    print.info(`  version: ${version}`)
+    print.divider()
+
+    print.highlight('Como Utilizar:')
+    print.newline()
+
+    print.info('  ngxd <command>')
+    print.info('  ngxd <command> [options]')
+    print.divider()
+
+    print.highlight('Comandos:')
     print.printCommands(toolbox)
   },
 }
 
-module.exports = command
+module.exports = COMMAND
