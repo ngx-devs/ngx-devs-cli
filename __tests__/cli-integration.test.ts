@@ -1,29 +1,21 @@
-import { system, filesystem } from 'gluegun'
+import { filesystem, system } from 'gluegun';
+import { PackageJSON } from 'gluegun/build/types/toolbox/meta-types';
 
 const src = filesystem.path(__dirname, '..')
 
 const cli = async (cmd) =>
   system.run('node ' + filesystem.path(src, 'bin', 'ngx-devs-cli') + ` ${cmd}`)
 
-test('outputs version', async () => {
-  const output = await cli('--version')
-  expect(output).toContain('0.0.1')
-})
+describe('[Commands: version]', () => {
+  test('should output package.json version', async () => {
+    const packageJson: PackageJSON = filesystem.read(
+      `${src}/package.json`,
+      'json'
+    )
 
-test('outputs help', async () => {
-  const output = await cli('--help')
-  expect(output).toContain('0.0.1')
-})
+    const expectedVersion = packageJson.version
+    const output = await cli('--version')
 
-test('generates file', async () => {
-  const output = await cli('generate foo')
-
-  expect(output).toContain('Generated file at models/foo-model.ts')
-  const foomodel = filesystem.read('models/foo-model.ts')
-
-  expect(foomodel).toContain(`module.exports = {`)
-  expect(foomodel).toContain(`name: 'foo'`)
-
-  // cleanup artifact
-  filesystem.remove('models')
+    expect(output).toContain(expectedVersion)
+  })
 })
