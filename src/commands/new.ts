@@ -1,8 +1,9 @@
-import { GluegunToolbox } from 'gluegun'
+import { GluegunCommand, GluegunToolbox } from 'gluegun';
 
-module.exports = {
-  name: 'generate',
-  alias: ['g'],
+const COMMAND: GluegunCommand = {
+  name: 'new',
+  alias: ['n'],
+  description: 'Cria um novo projeto Angular',
   run: async (toolbox: GluegunToolbox) => {
     const {
       parameters,
@@ -21,3 +22,5 @@ module.exports = {
     info(`Generated file at models/${name}-model.ts`)
   },
 }
+
+module.exports = COMMAND
