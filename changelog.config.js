@@ -2,6 +2,7 @@ module.exports = {
   disableEmoji: false,
   format: '{emoji} {type}{scope}: {subject}',
   list: [
+    'build',
     'test',
     'feat',
     'fix',
@@ -27,9 +28,15 @@ module.exports = {
   types: {
     chore: {
       description:
-        'Changes that affect the build system or external dependencies (example scopes: gulp, broccoli, npm)',
+        'Updating grunt tasks etc; no production code change "grunt task" means nothing that an external user would see.',
       emoji: '🚧',
       value: 'chore'
+    },
+    build: {
+      description:
+        'Changes that affect the build system or external dependencies (example scopes: gulp, broccoli, npm)',
+      emoji: '🏗️',
+      value: 'build'
     },
     ci: {
       description:
