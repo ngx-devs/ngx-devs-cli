@@ -1,30 +1,32 @@
-# ngx-devs-cli CLI
-
-Uma CLI criada para modernizar, padronizar e facilitar a criação/atualização e gestão de projetos angular.
-
+```bash
 ███╗░░██╗░██████╗░██╗░░██╗░░░░░░██████╗░███████╗██╗░░░██╗░██████╗  ░█████╗░██╗░░░░░██╗
 ████╗░██║██╔════╝░╚██╗██╔╝░░░░░░██╔══██╗██╔════╝██║░░░██║██╔════╝  ██╔══██╗██║░░░░░██║
 ██╔██╗██║██║░░██╗░░╚███╔╝░█████╗██║░░██║█████╗░░╚██╗░██╔╝╚█████╗░  ██║░░╚═╝██║░░░░░██║
 ██║╚████║██║░░╚██╗░██╔██╗░╚════╝██║░░██║██╔══╝░░░╚████╔╝░░╚═══██╗  ██║░░██╗██║░░░░░██║
 ██║░╚███║╚██████╔╝██╔╝╚██╗░░░░░░██████╔╝███████╗░░╚██╔╝░░██████╔╝  ╚█████╔╝███████╗██║
 ╚═╝░░╚══╝░╚═════╝░╚═╝░░╚═╝░░░░░░╚═════╝░╚══════╝░░░╚═╝░░░╚═════╝░  ░╚════╝░╚══════╝╚═╝
+```
 
-## Customizing your CLI
+Uma CLI criada para modernizar, padronizar e facilitar a criação/atualização de projetos angular.
 
-Check out the documentation at https://github.com/infinitered/gluegun/tree/master/docs.
+# Installation
 
-## Publishing to NPM
+```bash
+npm install ngx-devs-cli -g
+```
 
-To package your CLI up for NPM, do this:
+# Commands
 
-```shell
-$ npm login
-$ npm whoami
-$ npm test
+```bash
+# create a new project
+ngxd new <nome-do-projeto>
+```
 
-$ npm run build
-
-$ npm publish
+```bash
+# create a new entity
+ngxd generate component <nome-do-componente>
+# Or use the alias
+ngxd g c <nome-do-componente>
 ```
 
 # License

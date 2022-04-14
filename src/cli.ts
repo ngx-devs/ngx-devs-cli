@@ -5,20 +5,18 @@ async function run(argv) {
     .brand('ngx-devs-cli')
     .src(__dirname)
     .plugins('./node_modules', { matching: 'ngx-devs-cli-*', hidden: true })
-    .version()
     .exclude([
       'meta',
-      'filesystem',
       'semver',
       'system',
       'http',
       'patching',
-      'package-manager',
+      'package-manager'
     ])
-    .create()
+    .create();
 
-  const toolbox = await cli.run(argv)
-  return toolbox
+  const toolbox = await cli.run(argv);
+  return toolbox;
 }
 
-module.exports = { run }
+module.exports = { run };

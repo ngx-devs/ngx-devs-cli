@@ -7,13 +7,18 @@ export function findCommand(
 ): Command {
   const command = toolbox.runtime.commands.find(
     (command) => command.name === commandName
-  )
+  );
 
-  return command
+  return command;
 }
 
 export function printCreated(print: GluegunPrint, message: string) {
   const text =
-    print.colors.green('CREATED') + ' ' + print.colors.yellow(message)
-  print.info(text)
+    print.colors.green('CREATED') + ' ' + print.colors.yellow(message);
+  print.info(text);
+}
+
+export function printVersion(print: GluegunPrint, version: string) {
+  const text = print.colors.green('version: ') + print.colors.yellow(version);
+  print.info(text);
 }
