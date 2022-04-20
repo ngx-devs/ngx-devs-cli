@@ -6,7 +6,7 @@ import { printCreated } from '../../../../utils/functions.helper';
 const COMMAND: GluegunCommand = {
   name: 'widget',
   alias: ['w'],
-  description: 'Cria um componente Angular do tipo widget',
+  description: 'cria um componente Angular do tipo widget',
   run: async (toolbox) => {
     const { parameters, print, prompt, template } = toolbox;
     let componentName = parameters.first;
