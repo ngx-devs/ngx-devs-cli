@@ -3,7 +3,7 @@ const fs = require('fs');
 const dateFormat = require('dateformat');
 
 const template = path.resolve(__dirname, 'release-notes.hbs');
-// const commitTemplate = path.resolve(__dirname, 'commit-template.hbs');
+const commitTemplate = path.resolve(__dirname, 'commit-template.hbs');
 
 module.exports = {
   branches: ['main', 'next'],
@@ -18,6 +18,7 @@ module.exports = {
         },
         releaseNotes: {
           template: fs.readFileSync(template, 'utf8'),
+          commitTemplate: fs.readFileSync(commitTemplate, 'utf8'),
           helpers: {
             datetime: function (format = 'UTC:yyyy-mm-dd') {
               return dateFormat(new Date(), format);
@@ -33,6 +34,12 @@ module.exports = {
     ],
     '@semantic-release/github',
     '@semantic-release/npm',
+    [
+      '@semantic-release/git',
+      {
+        assets: ['CHANGELOG.md']
+      }
+    ],
     [
       '@semantic-release/changelog',
       {
