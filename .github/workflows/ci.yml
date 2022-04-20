@@ -1,8 +1,6 @@
 name: CI
 
 on:
-  push:
-    branches: [main]
   pull_request:
     branches: [main]
 
@@ -26,20 +24,3 @@ jobs:
 
       - name: 🧪 Tests
         run: npm run test
-
-  publish:
-    name: Publish to npm
-    if: "! contains(toJSON(github.event.commits.*.message), '[skip-ci]') && github.event.pull_request.merged == true"
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-        with:
-          node-version: '16.x'
-
-      - name: 🚀 Release
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: npm run semantic-release
