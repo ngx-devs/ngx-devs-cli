@@ -14,15 +14,27 @@ A CLI built to modernize, standardize and make it easier to create/update Angula
 </div>
 
 <p align="center">
-  <a href="https://www.npmjs.com/package/@ngx-devs/cli">
-    <img alt="NPM Version" src="https://img.shields.io/npm/v/@ngx-devs/cli?style=for-the-badge">
+
+  <a href="https://github.com/ngx-devs/ngx-devs-cli/actions?query=workflow%3A%22CI%22">
+    <img alt="Build" src="https://github.com/ngx-devs/ngx-devs-cli/workflows/CI/badge.svg">
   </a>
 
-  <img alt="Top Language" src="https://img.shields.io/github/languages/top/ngx-devs/ngx-devs-cli?color=3498db&style=for-the-badge">
+  <a href="https://www.npmjs.com/package/@ngx-devs/cli">
+    <img alt="NPM Version" src="https://img.shields.io/npm/v/@ngx-devs/cli">
+  </a>
 
-  <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/ngx-devs/ngx-devs-cli?color=3498db&style=for-the-badge&label=Latest Commit">
+  <a href="https://packagephobia.com/result?p=@ngx-devs/cli">
+    <img alt="Install Size" src="https://packagephobia.com/badge?p=@ngx-devs/cli&">
+  </a>
 
-  <img alt="Project License" src="https://img.shields.io/apm/l/vim-mode?style=for-the-badge&label=License"/>   
+  <img alt="Top Language" src="https://img.shields.io/github/languages/top/ngx-devs/ngx-devs-cli?color=3498db">
+
+  <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/ngx-devs/ngx-devs-cli?color=3498db&label=latest commit">
+
+   <a href="https://github.com/ngx-devs/ngx-devs-cli/blob/main/LICENSE">
+      <img alt="License" src="https://img.shields.io/packagist/l/doctrine/orm.svg">
+  </a>
+
 </p>
 
 <p align="center"> 
