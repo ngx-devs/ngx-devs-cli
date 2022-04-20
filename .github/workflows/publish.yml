@@ -1,4 +1,4 @@
-name: CI
+name: Publish
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
 jobs:
   publish:
     name: Publish to npm
-    if: "! contains(toJSON(github.event.commits.*.message), '[skip-ci]') && github.event.pull_request.merged == true"
+    if: "! contains(toJSON(github.event.commits.*.message), '[skip-ci]')"
     runs-on: ubuntu-latest
 
     steps:
