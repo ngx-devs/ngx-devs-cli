@@ -1,4 +1,4 @@
-name: pipeline
+name: CI
 
 on:
   push:
@@ -8,6 +8,7 @@ on:
 
 jobs:
   build:
+    name: Build, test and publish
     if: "! contains(toJSON(github.event.commits.*.message), '[skip-ci]')"
     runs-on: ubuntu-latest
 
@@ -16,6 +17,7 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: '16.x'
+
       - name: 🔧 Install
         run: npm ci
 
