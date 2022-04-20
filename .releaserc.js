@@ -14,27 +14,13 @@ module.exports = {
         releaseRules: {
           major: [':boom:'],
           minor: [':sparkles:'],
-          patch: [':bug:', ':package:']
+          patch: [':bug:', ':package:', 'construction']
         },
-        releaseNotes: {
-          template: fs.readFileSync(template, 'utf8'),
-          commitTemplate: fs.readFileSync(commitTemplate, 'utf8'),
-          helpers: {
-            datetime: function (format = 'UTC:yyyy-mm-dd') {
-              return dateFormat(new Date(), format);
-            }
-          },
-          issueResolution: {
-            template: '{baseUrl}/{owner}/{repo}/issues/{ref}',
-            baseUrl: 'https://github.com',
-            source: 'github.com'
-          }
-        }
+        releaseNotes: {}
       }
     ],
-    '@semantic-release/changelog',
+    '@semantic-release/github',
     '@semantic-release/npm',
-    '@semantic-release/git',
-    '@semantic-release/github'
+    ['@semantic-release/git', { assets: ['package.json', 'CHANGELOG.md'] }]
   ]
 };
