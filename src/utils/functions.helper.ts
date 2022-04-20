@@ -5,11 +5,9 @@ export function findCommand(
   toolbox: GluegunToolbox,
   commandName: string
 ): Command {
-  const command = toolbox.runtime.commands.find(
+  return toolbox.runtime.commands.find(
     (command) => command.name === commandName
   );
-
-  return command;
 }
 
 export function printCreated(print: GluegunPrint, message: string) {
