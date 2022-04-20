@@ -16,13 +16,16 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: '16.x'
-      - name: Install 🔧
+      - name: 🔧 Install
         run: npm ci
 
-      - name: Build 🏗️
+      - name: 🏗️ Build
         run: npm run build
 
-      - name: Release 🚀
+      - name: 🧪 Tests
+        run: npm run test
+
+      - name: 🚀 Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
