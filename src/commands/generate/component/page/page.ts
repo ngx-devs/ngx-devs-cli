@@ -7,31 +7,35 @@ const COMMAND: GluegunCommand = {
   alias: ['p'],
   description: 'Cria um componente Angular de tipo Page',
   run: async (toolbox: GluegunToolbox) => {
-    const { parameters, print, template, strings } = toolbox
+    const { parameters, print, template, strings } = toolbox;
 
-    const componentName = parameters.first
+    const componentName = parameters.first;
 
     template.generate({
-      template: 'component.page.html.ejs',
+      template: 'component.template.html.ejs',
       target: `./${componentName}/${componentName}.page.html`,
-      props: { name: componentName, ...strings },
-    })
+      props: { name: componentName, ...strings }
+    });
 
     template.generate({
-      template: 'component.page.ts.ejs',
+      template: 'component.template.ts.ejs',
       target: `./${componentName}/${componentName}.page.ts`,
-      props: { name: componentName, ...strings },
-    })
+      props: {
+        type: 'page',
+        name: componentName,
+        ...strings
+      }
+    });
 
     template.generate({
-      template: 'component.page.scss.ejs',
-      target: `./${componentName}/${componentName}.page.scss`,
-    })
+      template: 'component.template.scss.ejs',
+      target: `./${componentName}/${componentName}.page.scss`
+    });
 
-    printCreated(print, `${componentName}/${componentName}.page.html`)
-    printCreated(print, `${componentName}/${componentName}.page.ts`)
-    printCreated(print, `${componentName}/${componentName}.page.scss`)
-  },
-}
+    printCreated(print, `${componentName}/${componentName}.page.html`);
+    printCreated(print, `${componentName}/${componentName}.page.ts`);
+    printCreated(print, `${componentName}/${componentName}.page.scss`);
+  }
+};
 
-module.exports = COMMAND
+module.exports = COMMAND;
