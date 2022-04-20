@@ -1,0 +1,9 @@
+import { NgModule } from '@angular/core';
+
+import { <%= pascalCase(props.name) %>Component } from './<%= kebabCase(props.name) %>.component';
+
+@NgModule({
+  declarations: [<%= pascalCase(props.name) %>Component],
+  exports: [<%= pascalCase(props.name) %>Component],
+})
+export class <%= pascalCase(props.name) %>WidgetModule {}

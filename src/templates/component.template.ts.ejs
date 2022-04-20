@@ -1,0 +1,7 @@
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  templateUrl: './<%= kebabCase(props.name) %>.<%= kebabCase(props.type) %>.html',
+  styleUrls: ['./<%= kebabCase(props.name) %>.<%= kebabCase(props.type) %>.scss'],
+})
+export class <%= pascalCase(props.name) %><%= pascalCase(props.type) %> {}
