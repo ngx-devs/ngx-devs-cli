@@ -9,6 +9,8 @@
 
 Uma CLI criada para modernizar, padronizar e facilitar a criação/atualização de projetos angular.
 
+[![npm](https://img.shields.io/npm/v/ngx-devs-cli?style=flat-square)](https://www.npmjs.com/package/ngx-devs-cli)
+
 # Installation
 
 ```bash
