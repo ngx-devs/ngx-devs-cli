@@ -5,9 +5,7 @@ const dateFormat = require('dateformat');
 const template = path.resolve(__dirname, 'release-notes.hbs');
 
 module.exports = {
-  release: {
-    branches: ['main', 'next']
-  },
+  branches: ['main', 'next'],
   plugins: [
     [
       'semantic-release-gitmoji',
