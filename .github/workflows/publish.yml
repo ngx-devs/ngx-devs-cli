@@ -6,7 +6,7 @@ on:
 
 jobs:
   build:
-    name: Build and test
+    name: Build, test and Publish to NPM
     if: "! contains(toJSON(github.event.commits.*.message), '[skip-ci]')"
     runs-on: ubuntu-latest
 
@@ -24,16 +24,6 @@ jobs:
 
       - name: 🧪 Tests
         run: npm run test
-  publish:
-    name: Publish to npm
-    if: "! contains(toJSON(github.event.commits.*.message), '[skip-ci]')"
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-        with:
-          node-version: '16.x'
 
       - name: 🚀 Release
         env:
