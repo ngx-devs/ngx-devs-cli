@@ -1,3 +1,4 @@
+const path = require('path');
 const { promisify } = require('util');
 const dateFormat = require('dateformat');
 const readFileAsync = promisify(require('fs').readFile);
