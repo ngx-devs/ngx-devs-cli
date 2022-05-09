@@ -16,7 +16,7 @@
   "scripts": {
     "clean-build": "rm -rf ./build",
     "compile": "tsc -p .",
-    "copy-templates": "copyfiles ./src/templates/* ./build/templates",
+    "copy-templates": "copyfiles --up 1 ./src/templates/** ./build",
     "build": "npm run clean-build && npm run compile && npm run copy-templates",
     "prepublishOnly": "npm run build",
     "format": "eslint \"**/*.{js,jsx,ts,tsx}\" --fix && prettier \"**/*.{js,jsx,ts,tsx,json}\" --write",
@@ -43,6 +43,7 @@
   "devDependencies": {
     "@commitlint/cli": "^16.2.3",
     "@commitlint/config-conventional": "^16.2.1",
+    "@ngx-devs/commitlint-plugin-imperative": "^1.1.1",
     "@semantic-release/changelog": "^6.0.1",
     "@semantic-release/git": "^10.0.1",
     "@types/jest": "^26.0.20",
