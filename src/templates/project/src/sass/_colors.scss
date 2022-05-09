@@ -1,0 +1,59 @@
+$color-primary: #{"var(--color-primary)"};
+$color-secondary: #{"var(--color-secondary)"};
+
+$color-background: #{"var(--color-background)"};
+$color-surface: #{"var(--color-surface)"};
+
+$color-breadcrumb-item: #{"var(--color-breadcrumb-item)"};
+
+$color-text-on-background: #{"var(--color-text-on-background)"};
+$color-text-on-surface: #{"var(--color-text-on-surface)"};
+$color-text-on-primary: #{"var(--color-text-on-primary)"};
+$color-text-on-secondary: #{"var(--color-text-on-secondary)"};
+
+$color-title-on-background: #{"var(--color-title-on-background)"};
+$color-title-on-surface: #{"var(--color-title-on-surface)"};
+$color-title-on-primary: #{"var(--color-title-on-primary)"};
+$color-title-on-secondary: #{"var(--color-title-on-secondary)"};
+
+$color-card-header: #{"var(--color-card-header)"};
+
+$color-danger: #{"var(--color-danger)"};
+$color-success: #{"var(--color-success)"};
+
+$project-colors: (
+  "primary": #7749f8,
+  "secondary": #6c757d,
+  "background": #ffffff,
+  "surface": #f8f9fa,
+  "breadcrumb-item": #68717a,
+  "text-on-background": white,
+  "text-on-surface": #65686c,
+  "text-on-primary": #f2f2f2,
+  "text-on-secondary": #1986a7,
+  "title-on-background": #152536,
+  "title-on-surface": #152536,
+  "title-on-primary": #152536,
+  "title-on-secondary": #152536,
+  "card-header": #f8f9fa,
+  "success": #28a745,
+  "danger": #cf6679,
+);
+
+$project-colors-theme-dark: (
+  "primary": #7749f8,
+  "secondary": #6c757d,
+  "background": #ffffff,
+  "surface": #f8f9fa,
+  "text-on-background": white,
+  "text-on-surface": #65686c,
+  "text-on-primary": #f2f2f2,
+  "text-on-secondary": #1986a7,
+  "title-on-background": #152536,
+  "title-on-surface": #152536,
+  "title-on-primary": #152536,
+  "title-on-secondary": #152536,
+  "card-header": #f8f9fa,
+  "success": #28a745,
+  "danger": #cf6679,
+);

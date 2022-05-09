@@ -6,7 +6,7 @@ const template = path.resolve(__dirname, 'release-notes.hbs');
 const commitTemplate = path.resolve(__dirname, 'commit-template.hbs');
 
 module.exports = {
-  branches: ['main', 'next'],
+  branches: ['main'],
   plugins: [
     [
       'semantic-release-gitmoji',
@@ -15,8 +15,7 @@ module.exports = {
           major: [':boom:'],
           minor: [':sparkles:'],
           patch: [':bug:', ':package:', 'construction']
-        },
-        releaseNotes: {}
+        }
       }
     ],
     '@semantic-release/github',

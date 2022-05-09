@@ -1,0 +1,52 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "baseUrl": "./",
+    "outDir": "./dist/out-tsc",
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "noImplicitOverride": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "sourceMap": true,
+    "declaration": false,
+    "downlevelIteration": true,
+    "experimentalDecorators": true,
+    "moduleResolution": "node",
+    "importHelpers": true,
+    "target": "es2017",
+    "module": "es2020",
+    "lib": [
+      "es2020",
+      "dom"
+    ],
+    "paths": {
+      "@app/core": [
+        "edify/src/app/core"
+      ],
+      "@app/domain": [
+        "edify/src/app/domain"
+      ],
+      "@app/shared": [
+        "edify/src/app/shared"
+      ],
+      "@app/widget/components": [
+        "edify/src/app/widget/components"
+      ],
+      "@app/widget/directives": [
+        "edify/src/app/widget/directives"
+      ],
+      "@app/widget/pipes": [
+        "edify/src/app/widget/pipes"
+      ]
+    },
+    "strictPropertyInitialization": false
+  },
+  "angularCompilerOptions": {
+    "enableI18nLegacyMessageIdFormat": false,
+    "strictInjectionParameters": true,
+    "strictInputAccessModifiers": true,
+    "strictTemplates": true
+  }
+}

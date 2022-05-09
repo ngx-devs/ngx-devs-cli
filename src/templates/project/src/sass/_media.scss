@@ -1,0 +1,84 @@
+$desktop: "desktop";
+$large-tablet: "large-tablet";
+$tablet: "tablet";
+$small-tablet: "small-tablet";
+$mobile: "mobile";
+$tiny-mobile: "tiny-mobile";
+
+$media-desktop: 1200;
+$media-large-tablet: 991;
+$media-tablet: 767;
+$media-small-tablet: 720;
+$media-mobile: 479;
+$media-tiny-mobile: 445;
+
+@mixin tiny-mobile {
+  @media screen and (max-width: ($media-tiny-mobile * 1px)) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media screen and (min-width: ($media-tiny-mobile * 1px + 1)) and (max-width: ($media-mobile * 1px)) {
+    @content;
+  }
+}
+
+@mixin small-tablet {
+  @media screen and (min-width: ($media-mobile * 1px + 1)) and (max-width: ($media-small-tablet * 1px)) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media screen and (min-width: ($media-small-tablet * 1px + 1)) and (max-width: ($media-tablet * 1px)) {
+    @content;
+  }
+}
+
+@mixin large-tablet {
+  @media screen and (min-width: ($media-tablet * 1px + 1)) and (max-width: ($media-large-tablet * 1px)) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media screen and (min-width: ($media-large-tablet * 1px + 1)) {
+    @content;
+  }
+}
+
+@mixin medias($sizes...) {
+  @each $size in $sizes {
+    @if $size == "tiny-mobile" {
+      @include tiny-mobile() {
+        @content;
+      }
+    }
+    @if $size == "mobile" {
+      @include mobile() {
+        @content;
+      }
+    }
+    @if $size == "small-tablet" {
+      @include small-tablet() {
+        @content;
+      }
+    }
+    @if $size == "tablet" {
+      @include tablet() {
+        @content;
+      }
+    }
+    @if $size == "large-tablet" {
+      @include large-tablet() {
+        @content;
+      }
+    }
+    @if $size == "desktop" {
+      @include desktop() {
+        @content;
+      }
+    }
+  }
+}
