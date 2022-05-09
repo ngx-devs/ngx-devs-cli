@@ -2,8 +2,7 @@ import { filesystem, system } from 'gluegun';
 
 const src = filesystem.path(__dirname, '..');
 
-const cli = async (cmd) =>
-  system.run('node ' + filesystem.path(src, 'bin', 'ngx-devs-cli') + ` ${cmd}`);
+const cli = async (cmd) => system.run('node ' + filesystem.path(src, 'bin', 'ngx-devs-cli') + ` ${cmd}`);
 
 describe('[CLI]', () => {
   describe('[Commands: generate page component]', () => {
@@ -43,6 +42,23 @@ describe('[CLI]', () => {
   describe('[Commands: generate widget component]', () => {
     afterEach(() => {
       filesystem.remove('sample');
+    });
+
+    test('should generate a widget component on provided path', async () => {
+      await cli('g c w sample --path=sample-project/components');
+
+      const path = 'sample-project/components/sample';
+      const html = filesystem.read(`${path}/sample.component.html`);
+      const scss = filesystem.read(`${path}/sample.component.scss`);
+      const ts = filesystem.read(`${path}/sample.component.ts`);
+      const widgetModule = filesystem.read('sample-project/components/sample/sample.widget.module.ts');
+
+      expect(html).toBeDefined();
+      expect(scss).toBeDefined();
+      expect(ts).toBeDefined();
+      expect(widgetModule).toBeDefined();
+
+      filesystem.remove('sample-project');
     });
 
     test('should generate widget component with 4 files', async () => {

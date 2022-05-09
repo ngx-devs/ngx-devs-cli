@@ -9,6 +9,10 @@ const COMMAND: GluegunCommand = {
   description: 'cria um componente Angular do tipo widget',
   run: async (toolbox) => {
     const { parameters, print, prompt, template } = toolbox;
+    const {
+      options: { path }
+    } = parameters;
+
     let componentName = parameters.first;
 
     if (!componentName) {
@@ -28,20 +32,24 @@ const COMMAND: GluegunCommand = {
       componentName = response.componentName;
     }
 
+    const componentPath = path
+      ? `${path}/${componentName}/${componentName}`
+      : `./${componentName}/${componentName}`;
+
     template.generate({
       template: 'component.template.html.ejs',
-      target: `./${componentName}/${componentName}.component.html`,
+      target: `${componentPath}.component.html`,
       props: { name: componentName, ...strings }
     });
 
     template.generate({
       template: 'component.template.scss.ejs',
-      target: `./${componentName}/${componentName}.component.scss`
+      target: `${componentPath}.component.scss`
     });
 
     template.generate({
       template: 'component.template.ts.ejs',
-      target: `./${componentName}/${componentName}.component.ts`,
+      target: `${componentPath}.component.ts`,
       props: {
         type: 'component',
         name: componentName,
@@ -51,7 +59,7 @@ const COMMAND: GluegunCommand = {
 
     template.generate({
       template: 'widget.module.template.ts.ejs',
-      target: `./${componentName}/${componentName}.widget.module.ts`,
+      target: `${componentPath}.widget.module.ts`,
       props: {
         type: 'component',
         name: componentName,
@@ -59,10 +67,10 @@ const COMMAND: GluegunCommand = {
       }
     });
 
-    printCreated(print, `${componentName}/${componentName}.component.html`);
-    printCreated(print, `${componentName}/${componentName}.component.ts`);
-    printCreated(print, `${componentName}/${componentName}.component.scss`);
-    printCreated(print, `${componentName}/${componentName}.widget.module.ts`);
+    printCreated(print, `${componentPath}.component.html`);
+    printCreated(print, `${componentPath}.component.ts`);
+    printCreated(print, `${componentPath}.component.scss`);
+    printCreated(print, `${componentPath}.widget.module.ts`);
   }
 };
 

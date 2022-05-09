@@ -7,6 +7,7 @@ const COMMAND: GluegunCommand = {
   name: 'component',
   alias: ['c'],
   description: 'Cria um componente Angular de tipo específico',
+
   run: async (toolbox: GluegunToolbox) => {
     const { parameters, prompt } = toolbox;
 
