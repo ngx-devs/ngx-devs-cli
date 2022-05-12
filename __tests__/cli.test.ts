@@ -39,6 +39,40 @@ describe('[CLI]', () => {
     });
   });
 
+  describe('[Commands: generate dialog component]', () => {
+    afterEach(() => {
+      filesystem.remove('sample');
+    });
+
+    test('should generate a dialog component with 3 files', async () => {
+      await cli('g c d sample');
+
+      const html = filesystem.read('sample/sample.dialog.html');
+      const scss = filesystem.read('sample/sample.dialog.scss');
+      const ts = filesystem.read('sample/sample.dialog.ts');
+
+      expect(html).toBeDefined();
+      expect(scss).toBeDefined();
+      expect(ts).toBeDefined();
+    });
+
+    test('should generate a dialog component html with default template <p>sample works</p>', async () => {
+      await cli('g c d sample');
+
+      const html = filesystem.read('sample/sample.dialog.html');
+      expect(html).toContain('<p>sample works</p>');
+    });
+
+    test('should generate a dialog component with correct templateUrl: and styleUrls ', async () => {
+      await cli('g c d sample');
+
+      const ts = filesystem.read('sample/sample.dialog.ts');
+
+      expect(ts).toContain(`templateUrl: './sample.dialog.html'`);
+      expect(ts).toContain(`styleUrls: ['./sample.dialog.scss']`);
+    });
+  });
+
   describe('[Commands: generate widget component]', () => {
     afterEach(() => {
       filesystem.remove('sample');
