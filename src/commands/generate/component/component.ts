@@ -14,7 +14,7 @@ const COMMAND: GluegunCommand = {
     let componentName = parameters.first;
 
     const QUESTION = 'Qual tipo de componente você deseja criar?';
-    const TYPES = ['common', 'page', 'widget', 'layout'];
+    const TYPES = ['common', 'page', 'widget', 'layout', 'dialog'];
 
     const componentTypeResponse: GluegunAskResponse = await prompt.ask({
       type: 'select',
