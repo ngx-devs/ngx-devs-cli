@@ -1,7 +1,8 @@
 import { GluegunCommand, strings } from 'gluegun';
-import { GluegunAskResponse } from 'gluegun/build/types/toolbox/prompt-types';
 
-import { printCreated } from '../../../../utils/functions.helper';
+import {
+    getComponentName, getComponentPath, printCreated
+} from '../../../../utils/functions.helper';
 
 const COMMAND: GluegunCommand = {
   name: 'widget',
@@ -13,28 +14,8 @@ const COMMAND: GluegunCommand = {
       options: { path }
     } = parameters;
 
-    let componentName = parameters.first;
-
-    if (!componentName) {
-      const response: GluegunAskResponse = await prompt.ask({
-        type: 'input',
-        name: 'componentName',
-        message: 'Qual o nome do componente?',
-        validate: (value: string) => {
-          if (!value) {
-            return 'O nome do componente não pode ser vazio';
-          }
-
-          return true;
-        }
-      });
-
-      componentName = response.componentName;
-    }
-
-    const componentPath = path
-      ? `${path}/${componentName}/${componentName}`
-      : `./${componentName}/${componentName}`;
+    const componentName = parameters.first ?? (await getComponentName(prompt));
+    const componentPath = getComponentPath(path, componentName);
 
     template.generate({
       template: 'component.template.html.ejs',
