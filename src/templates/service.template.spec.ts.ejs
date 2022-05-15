@@ -1,0 +1,16 @@
+import { TestBed } from '@angular/core/testing';
+
+import { <%= pascalCase(props.name) %><%= pascalCase(props.type) %> } from './<%= kebabCase(props.name) %>.<%= kebabCase(props.type) %>';
+
+describe('<%= pascalCase(props.name) %><%= pascalCase(props.type) %>', () => {
+  let service: <%= pascalCase(props.name) %><%= pascalCase(props.type) %>;
+
+  beforeEach(() => {
+    TestBed.configureTestingModule({});
+    service = TestBed.inject(<%= pascalCase(props.name) %><%= pascalCase(props.type) %>);
+  });
+
+  it('should be created', () => {
+    expect(service).toBeTruthy();
+  });
+});
