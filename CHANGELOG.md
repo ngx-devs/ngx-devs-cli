@@ -1,20 +1,5 @@
 # Changelog
 
-<a name="next"></a>
-## next
-
-### Changed
-
-- 🔧 ci: fix global install script [[c549323](https://github.com/ngx-devs/ngx-devs-cli/commit/c5493238feb4f9138538632e6189cbdc7d8a80ce)]
-- 🔧 ci: install changelog globally [[b57ca29](https://github.com/ngx-devs/ngx-devs-cli/commit/b57ca298fc97b37ddd018b31ae585c6e2c8df4c3)]
-- 🔧 ci: update changelog script [[33993dd](https://github.com/ngx-devs/ngx-devs-cli/commit/33993dd500ed44f60f45836231f86ac58780458a)]
-
-### Miscellaneous
-
-- 🚧 chore: remove other changelog plugins [[0719447](https://github.com/ngx-devs/ngx-devs-cli/commit/0719447e49ba7ca83d66933052a3bd017d93ddb0)]
-- 🚧 chore: change releaserc from js to json [[6909cd3](https://github.com/ngx-devs/ngx-devs-cli/commit/6909cd3f53a438016bd1db4036f5111731dee124)]
-
-
 <a name="1.9.0"></a>
 ## 1.9.0 (2022-05-28)
 
