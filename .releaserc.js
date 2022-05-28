@@ -1,10 +1,3 @@
-const path = require('path');
-const fs = require('fs');
-const dateFormat = require('dateformat');
-
-const template = path.resolve(__dirname, 'release-notes.hbs');
-const commitTemplate = path.resolve(__dirname, 'commit-template.hbs');
-
 module.exports = {
   branches: ['main'],
   plugins: [
@@ -14,7 +7,7 @@ module.exports = {
         releaseRules: {
           major: [':boom:'],
           minor: [':sparkles:'],
-          patch: [':bug:', ':package:', 'construction']
+          patch: [':bug:', ':package:']
         }
       }
     ],
