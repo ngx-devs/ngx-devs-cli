@@ -1,5 +1,18 @@
 # Changelog
 
+<a name="1.11.0"></a>
+## 1.11.0 (2022-05-28)
+
+### Added
+
+- ✨ feat: create spec file for common component [[63720c2](https://github.com/ngx-devs/ngx-devs-cli/commit/63720c2934ed3f35efc0695249c176a882c5414a)]
+
+### Miscellaneous
+
+-  chore(release): 1.11.0 [skip ci] [[d0c403b](https://github.com/ngx-devs/ngx-devs-cli/commit/d0c403b552f97e210366870179a5dd9a27facaa9)]
+- 📝 docs: update changelog [skip ci] [[17697c7](https://github.com/ngx-devs/ngx-devs-cli/commit/17697c723f09f9035475f7198a971d25bed01fc7)]
+
+
 <a name="1.10.2"></a>
 ## 1.10.2 (2022-05-28)
 
