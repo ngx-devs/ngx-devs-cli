@@ -6,7 +6,7 @@ import { findCommand } from '../../../utils/functions.helper';
 const COMMAND: GluegunCommand = {
   name: 'component',
   alias: ['c'],
-  description: 'Cria um componente Angular de tipo específico',
+  description: 'Cria um componente Angular',
 
   run: async (toolbox: GluegunToolbox) => {
     const { parameters, prompt } = toolbox;
