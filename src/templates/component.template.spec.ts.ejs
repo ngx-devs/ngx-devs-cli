@@ -1,0 +1,24 @@
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { <%= pascalCase(props.name) %> } from './<%= kebabCase(props.name) %>.component';
+
+describe('<%= pascalCase(props.name) %>', () => {
+  let component: <%= pascalCase(props.name) %>;
+  let fixture: ComponentFixture<<%= pascalCase(props.name) %>>;
+
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      declarations: [ <%= pascalCase(props.name) %> ]
+    })
+    .compileComponents();
+  });
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(<%= pascalCase(props.name) %>);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create <%= kebabCase(props.name) %>', () => {
+    expect(component).toBeTruthy();
+  });
+});

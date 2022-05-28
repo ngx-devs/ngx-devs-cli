@@ -1,8 +1,5 @@
 import { GluegunCommand, GluegunToolbox, strings } from 'gluegun';
-
-import {
-    getComponentName, getComponentPath, printCreated
-} from '../../../../utils/functions.helper';
+import { getComponentName, getComponentPath, printCreated } from '../../../../utils/functions.helper';
 
 const COMMAND: GluegunCommand = {
   name: 'common',
@@ -38,8 +35,19 @@ const COMMAND: GluegunCommand = {
       }
     });
 
+    template.generate({
+      template: 'component.template.spec.ts.ejs',
+      target: `${componentPath}.component.spec.ts`,
+      props: {
+        type: 'component',
+        name: componentName,
+        ...strings
+      }
+    });
+
     printCreated(print, `${componentPath}.component.html`);
     printCreated(print, `${componentPath}.component.scss`);
+    printCreated(print, `${componentPath}.component.spec.ts`);
     printCreated(print, `${componentPath}.component.ts`);
   }
 };

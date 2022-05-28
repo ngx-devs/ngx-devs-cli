@@ -1,8 +1,7 @@
 import { filesystem } from 'gluegun';
-
 import { runNgxdCLI } from '../../../../utils/cli-test-setup';
 
-describe('[Commands: generate common component]', () => {
+describe('Commands: [Generate] => [Component] => [Common]', () => {
   beforeEach(() => {
     jest.useFakeTimers();
     jest.setTimeout(100000);
@@ -45,6 +44,28 @@ describe('[Commands: generate common component]', () => {
 
     expect(ts).toContain(`templateUrl: './${name}.component.html'`);
     expect(ts).toContain(`styleUrls: ['./${name}.component.scss']`);
+    filesystem.remove(`${name}`);
+  });
+
+  test('should generate a common component with spec file', async () => {
+    const name = 'sample-style-template-url';
+    await runNgxdCLI(`g c c ${name}`);
+
+    const ts = filesystem.read(`${name}/${name}.component.spec.ts`);
+
+    expect(ts).toBeDefined();
+
+    filesystem.remove(`${name}`);
+  });
+
+  test('should not contain ngOnInit on import statment', async () => {
+    const name = 'sample-style-template-url';
+    await runNgxdCLI(`g c c ${name}`);
+
+    const ts = filesystem.read(`${name}/${name}.component.ts`);
+
+    expect(ts).not.toContain(`OnInit`);
+
     filesystem.remove(`${name}`);
   });
 });
