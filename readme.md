@@ -87,11 +87,42 @@ ngxd g c sample
 ngxd new <project-name>
 ```
 
+### Components
+
+##### :hammer_and_wrench: **basic**
+
 ```bash
-# create a new entity
-ngxd generate component <component-name>
-# Or use an alias
-ngxd g c <component-name>
+# create a new basic component
+ngxd generate component basic <component-name>
+# or
+ngxd g c b <component-name>
+```
+
+##### :hammer_and_wrench: **widget**
+
+```bash
+# create a new widget component
+ngxd generate component widget <component-name>
+# or
+ngxd g c w <component-name>
+```
+
+##### :hammer_and_wrench: **page**
+
+```bash
+# create a new page component
+ngxd generate component page <component-name>
+# or
+ngxd g c p <component-name>
+```
+
+##### :hammer_and_wrench: **dialog**
+
+```bash
+# create a new dialog component
+ngxd generate component dialog <component-name>
+# or
+ngxd g c d <component-name>
 ```
 
 ## :boy: **Author**
