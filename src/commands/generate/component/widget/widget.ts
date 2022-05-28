@@ -49,8 +49,8 @@ const COMMAND: GluegunCommand = {
     });
 
     printCreated(print, `${componentPath}.component.html`);
-    printCreated(print, `${componentPath}.component.ts`);
     printCreated(print, `${componentPath}.component.scss`);
+    printCreated(print, `${componentPath}.component.ts`);
     printCreated(print, `${componentPath}.widget.module.ts`);
   }
 };
