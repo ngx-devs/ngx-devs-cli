@@ -1,7 +1,7 @@
 {
   "name": "@ngx-devs/cli",
   "license": "MIT",
-  "version": "1.10.0",
+  "version": "1.10.1",
   "private": false,
   "publishConfig": {
     "access": "public"
