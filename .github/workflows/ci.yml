@@ -34,7 +34,7 @@ jobs:
         run: npm run release
 
       - name: 📜 Generate Gitmoji Changelog
-        run: npx gitmoji-changelog
+        run: npm run changelog
 
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
