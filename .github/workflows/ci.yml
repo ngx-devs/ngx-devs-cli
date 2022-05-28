@@ -34,7 +34,7 @@ jobs:
         run: npm run release
 
       - name: 🔧 Install Gitmoji Changelog
-        run: npm i -G gitmoji-changelog
+        run: npm i -g gitmoji-changelog
 
       - name: 📜 Generate Changelog
         run: gitmoji-changelog
