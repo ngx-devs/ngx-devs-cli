@@ -1,5 +1,19 @@
 # Changelog
 
+<a name="1.10.2"></a>
+## 1.10.2 (2022-05-28)
+
+### Fixed
+
+- 🐛 fix(eslint): es6 import to commonjs [[83610d8](https://github.com/ngx-devs/ngx-devs-cli/commit/83610d8154c57c53881a1b4dc8bb210a9ed44611)]
+
+### Miscellaneous
+
+-  chore(release): 1.10.2 [skip ci] [[e9d14da](https://github.com/ngx-devs/ngx-devs-cli/commit/e9d14da26e6ba2b30b67058d27725a04179e6263)]
+- 🚧 chore(eslint): disable commonjs rule [[435e1da](https://github.com/ngx-devs/ngx-devs-cli/commit/435e1da6af427ddef71d9d05948bbfce70b4e121)]
+- 📝 docs: update changelog [skip ci] [[d88229f](https://github.com/ngx-devs/ngx-devs-cli/commit/d88229fc2ef73fa284930e312cab429bda34186a)]
+
+
 <a name="1.10.1"></a>
 ## 1.10.1 (2022-05-28)
 
