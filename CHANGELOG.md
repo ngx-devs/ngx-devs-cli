@@ -1,5 +1,14 @@
 # Changelog
 
+<a name="next"></a>
+## next
+
+### Miscellaneous
+
+- 📝 docs: update changelog [skip ci] [[7876bd6](https://github.com/ngx-devs/ngx-devs-cli/commit/7876bd6c865663cb1ec3b508abd820bc541df9e8)]
+- 📝 docs: update readme file case pattern [[6a47329](https://github.com/ngx-devs/ngx-devs-cli/commit/6a47329db63adcdbdbac9ace9cfbfcc843449ca0)]
+
+
 <a name="1.10.0"></a>
 ## 1.10.0 (2022-05-28)
 
