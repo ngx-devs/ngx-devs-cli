@@ -33,9 +33,12 @@ jobs:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: npm run release
 
-      - name: 📜 Generate Gitmoji Changelog
-        run: npm run changelog
+      - name: 🔧 Install Gitmoji Changelog
+        run: npm i -G gitmoji-changelog
+
+      - name: 📜 Generate Changelog
+        run: gitmoji-changelog
 
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          commit_message: ':pencil: docs: update changelog [skip ci]'
+          commit_message: ':memo: docs: update changelog [skip ci]'
