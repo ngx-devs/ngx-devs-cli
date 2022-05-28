@@ -1,4 +1,4 @@
-import { GluegunPrint, GluegunToolbox } from 'gluegun';
+import { GluegunPrint, GluegunToolbox, strings } from 'gluegun';
 import { Command } from 'gluegun/build/types/domain/command';
 import { GluegunAskResponse, GluegunPrompt } from 'gluegun/build/types/toolbox/prompt-types';
 
@@ -30,7 +30,7 @@ export async function getComponentName(prompt: GluegunPrompt) {
     }
   });
 
-  return response.componentName;
+  return strings.kebabCase(response.componentName);
 }
 
 export function getComponentPath(path: any, componentName: string) {
