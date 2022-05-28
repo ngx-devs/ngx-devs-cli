@@ -1,6 +1,5 @@
 import { GluegunCommand, GluegunToolbox } from 'gluegun';
 
-import * as packageJson from '../../package.json';
 import { printVersion } from '../utils/functions.helper';
 
 const COMMAND: GluegunCommand = {
@@ -8,7 +7,7 @@ const COMMAND: GluegunCommand = {
   alias: ['v', '-v', '--version', '-version'],
   description: 'Mostra a versão do NgxDevs',
   run: async ({ print }: GluegunToolbox) => {
-    const version = packageJson?.version;
+    const version = require('../../package.json').version;
     printVersion(print, version);
   }
 };

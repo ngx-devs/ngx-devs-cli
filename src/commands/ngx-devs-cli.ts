@@ -1,6 +1,5 @@
 import { GluegunCommand } from 'gluegun';
 
-import * as packageJson from '../../package.json';
 import { ASCII_ART } from '../utils/cli-ascii.const';
 import { printVersion } from '../utils/functions.helper';
 
@@ -10,7 +9,7 @@ const COMMAND: GluegunCommand = {
   description: 'Inicializa a CLI do NgxDevs',
   run: async (toolbox) => {
     const { print } = toolbox;
-    const version = packageJson.version;
+    const version = require('../../package.json').version;
 
     print.info(ASCII_ART);
     printVersion(print, version);
