@@ -1,6 +1,6 @@
 import { filesystem } from 'gluegun';
 
-import { cli } from '@ngxd/cli-test-setup';
+import { runNgxdCLI } from '../../../../utils/cli-test-setup';
 
 describe('[Commands: generate widget component]', () => {
   const name = 'gwc';
@@ -17,7 +17,7 @@ describe('[Commands: generate widget component]', () => {
 
   test('should generate a widget component on provided path', async () => {
     const path = 'sample-project/components';
-    await cli(`g c w ${name} --path=${path}`);
+    await runNgxdCLI(`g c w ${name} --path=${path}`);
 
     const html = filesystem.read(`${path}/${name}/${name}.component.html`);
     const scss = filesystem.read(`${path}/${name}/${name}.component.scss`);
@@ -33,7 +33,7 @@ describe('[Commands: generate widget component]', () => {
   });
 
   test('should generate widget component with 4 files', async () => {
-    await cli(`g c w ${name}`);
+    await runNgxdCLI(`g c w ${name}`);
 
     const html = filesystem.read(`${name}/${name}.component.html`);
     const scss = filesystem.read(`${name}/${name}.component.scss`);
@@ -47,14 +47,14 @@ describe('[Commands: generate widget component]', () => {
   });
 
   test('should generate widget component html with default template <p>sample works</p>', async () => {
-    await cli(`g c w ${name}`);
+    await runNgxdCLI(`g c w ${name}`);
     const html = filesystem.read(`${name}/${name}.component.html`);
 
     expect(html).toContain(`<p>${name} works</p>`);
   });
 
   test('should generate a widget component with correct templateUrl: and styleUrls ', async () => {
-    await cli(`g c w ${name}`);
+    await runNgxdCLI(`g c w ${name}`);
 
     const ts = filesystem.read(`${name}/${name}.component.ts`);
 

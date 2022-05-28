@@ -1,6 +1,6 @@
 import { filesystem } from 'gluegun';
 
-import { cli } from '@ngxd/cli-test-setup';
+import { runNgxdCLI } from '../../../../utils/cli-test-setup';
 
 describe('[Commands: generate page component]', () => {
   const name = 'gpc';
@@ -16,7 +16,7 @@ describe('[Commands: generate page component]', () => {
   });
 
   test('should generate a page component with 3 files', async () => {
-    await cli(`g c p ${name}`);
+    await runNgxdCLI(`g c p ${name}`);
 
     const html = filesystem.read(`${name}/${name}.page.html`);
     const scss = filesystem.read(`${name}/${name}.page.scss`);
@@ -28,14 +28,14 @@ describe('[Commands: generate page component]', () => {
   });
 
   test('should generate a page component html with default template <p>sample works</p>', async () => {
-    await cli(`g c p ${name}`);
+    await runNgxdCLI(`g c p ${name}`);
     const html = filesystem.read(`${name}/${name}.page.html`);
 
     expect(html).toContain(`<p>${name} works</p>`);
   });
 
   test('should generate a page component with correct templateUrl: and styleUrls ', async () => {
-    await cli(`g c p ${name}`);
+    await runNgxdCLI(`g c p ${name}`);
 
     const ts = filesystem.read(`${name}/${name}.page.ts`);
 
