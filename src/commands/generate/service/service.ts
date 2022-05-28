@@ -6,7 +6,7 @@ import { findCommand } from '../../../utils/functions.helper';
 const COMMAND: GluegunCommand = {
   name: 'service',
   alias: ['s'],
-  description: 'Cria um serviço Angular de tipo específico',
+  description: 'Cria um serviço Angular',
 
   run: async (toolbox: GluegunToolbox) => {
     const { parameters, prompt } = toolbox;
