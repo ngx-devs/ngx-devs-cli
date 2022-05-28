@@ -9,6 +9,7 @@ module.exports = {
   },
   extends: ['plugin:@typescript-eslint/recommended', 'prettier'],
   rules: {
-    '@typescript-eslint/no-unused-vars': 'error'
+    '@typescript-eslint/no-unused-vars': 'error',
+    '@typescript-eslint/no-var-requires': 'off'
   }
 };
