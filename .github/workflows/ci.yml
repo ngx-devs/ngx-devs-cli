@@ -33,15 +33,15 @@ jobs:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: npm run release
 
-      - name: 🔧 Install Gitmoji Changelog
-        if: "branch == 'main'"
+      - name: 🔧 Install Gitmoji Changelog        
+        if: github.ref == 'refs/heads/main' 
         run: npm i -g gitmoji-changelog
 
       - name: 📜 Generate Changelog
-        if: "branch == 'main'"
+        if: github.ref == 'refs/heads/main'
         run: gitmoji-changelog
 
       - uses: stefanzweifel/git-auto-commit-action@v4
-        if: "branch == 'main'"
+        if: github.ref == 'refs/heads/main'
         with:
           commit_message: ':memo: docs: update changelog [skip ci]'
