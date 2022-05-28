@@ -80,6 +80,8 @@ ngxd g c sample
 
 </div>
 
+---
+
 ## :robot: Commands
 
 ```bash
@@ -89,22 +91,22 @@ ngxd new <project-name>
 
 ### Components
 
-##### :hammer_and_wrench: **basic**
+##### :hammer_and_wrench: **common**
 
 ```bash
-# create a new basic component
-ngxd generate component basic <component-name>
+# create a new common component
+ngxd generate component common <component-name>
 # or
-ngxd g c b <component-name>
+ngxd g c c <component-name>
 ```
 
-##### :hammer_and_wrench: **widget**
+##### :hammer_and_wrench: **dialog**
 
 ```bash
-# create a new widget component
-ngxd generate component widget <component-name>
+# create a new dialog component
+ngxd generate component dialog <component-name>
 # or
-ngxd g c w <component-name>
+ngxd g c d <component-name>
 ```
 
 ##### :hammer_and_wrench: **page**
@@ -116,13 +118,33 @@ ngxd generate component page <component-name>
 ngxd g c p <component-name>
 ```
 
-##### :hammer_and_wrench: **dialog**
+##### :hammer_and_wrench: **widget**
 
 ```bash
-# create a new dialog component
-ngxd generate component dialog <component-name>
+# create a new widget component
+ngxd generate component widget <component-name>
 # or
-ngxd g c d <component-name>
+ngxd g c w <component-name>
+```
+
+### Services
+
+##### :hammer_and_wrench: **common**
+
+```bash
+# create a new common service
+ngxd generate service common <service-name>
+# or
+ngxd g s c <service-name>
+```
+
+##### :hammer_and_wrench: **api**
+
+```bash
+# create a new api service
+ngxd generate service api <service-name>
+# or
+ngxd g s a <service-name>
 ```
 
 ## :boy: **Author**
