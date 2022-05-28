@@ -1,5 +1,36 @@
 # Changelog
 
+<a name="1.10.0"></a>
+## 1.10.0 (2022-05-28)
+
+### Added
+
+- ✨ feat: generate api and common service [[687bfd7](https://github.com/ngx-devs/ngx-devs-cli/commit/687bfd7b4321edf8d72ff70e8e0d310bcc9640d4)]
+
+### Changed
+
+- 🔧 ci: fix condition to run workflow [[11954e6](https://github.com/ngx-devs/ngx-devs-cli/commit/11954e6ec04c7e425a339a04b1fdfd8134a6167d)]
+- 🔧 ci: prevent update changelog from running out of main branch [[10915be](https://github.com/ngx-devs/ngx-devs-cli/commit/10915be9ced952a8faeead9e1f2d3fddcdf62dd5)]
+- 🔧 ci: fix global install script [[c549323](https://github.com/ngx-devs/ngx-devs-cli/commit/c5493238feb4f9138538632e6189cbdc7d8a80ce)]
+- 🔧 ci: install changelog globally [[b57ca29](https://github.com/ngx-devs/ngx-devs-cli/commit/b57ca298fc97b37ddd018b31ae585c6e2c8df4c3)]
+- 🔧 ci: update changelog script [[33993dd](https://github.com/ngx-devs/ngx-devs-cli/commit/33993dd500ed44f60f45836231f86ac58780458a)]
+
+### Miscellaneous
+
+-  chore(release): 1.10.0 [skip ci] [[24e9f5f](https://github.com/ngx-devs/ngx-devs-cli/commit/24e9f5fe4cfb7936b3081583f8d15bdff586dcdd)]
+- 📝 docs: update changelog [skip ci] [[fae3379](https://github.com/ngx-devs/ngx-devs-cli/commit/fae33791a3dfd6ff67fd93957024be1865482800)]
+- 📝 docs: update changelog [skip ci] [[026f05b](https://github.com/ngx-devs/ngx-devs-cli/commit/026f05ba59a621ac83e3882f0f3a82a2d54fb231)]
+- 📝 docs: update component commands and add service commands [[dbc9f07](https://github.com/ngx-devs/ngx-devs-cli/commit/dbc9f07275402331f4144bb112a82e188fe75641)]
+- 🧪 test(commands): test cases for api and common service [[2312b48](https://github.com/ngx-devs/ngx-devs-cli/commit/2312b482b709add581c79a374306e834c10c26f8)]
+- 📦 refactor(command): change component and service description [[e5c4d8e](https://github.com/ngx-devs/ngx-devs-cli/commit/e5c4d8ec5ded1a70bca18ae7d680902c690219a3)]
+- 🚧 chore(commitlint): change header-max-length to 80 [[40d69d9](https://github.com/ngx-devs/ngx-devs-cli/commit/40d69d989cea454828ccec4caeac81778885fdd8)]
+- 🚧 chore(jest): change tsConfig to tsconfig due to deprecation [[cf8cb52](https://github.com/ngx-devs/ngx-devs-cli/commit/cf8cb525c028ca0ecf40f7eb5683263b0f9ff3a2)]
+- 📦 refactor: fix eslint errors [[63c72eb](https://github.com/ngx-devs/ngx-devs-cli/commit/63c72eb96251b291ddd78e5d3baa09e497fca37a)]
+- 🧪 test: change cli test function name and location [[3c3023e](https://github.com/ngx-devs/ngx-devs-cli/commit/3c3023ef2486c3402ee467fa3b14b3267c89adea)]
+- 🚧 chore: remove other changelog plugins [[0719447](https://github.com/ngx-devs/ngx-devs-cli/commit/0719447e49ba7ca83d66933052a3bd017d93ddb0)]
+- 🚧 chore: change releaserc from js to json [[6909cd3](https://github.com/ngx-devs/ngx-devs-cli/commit/6909cd3f53a438016bd1db4036f5111731dee124)]
+
+
 <a name="1.9.0"></a>
 ## 1.9.0 (2022-05-28)
 
