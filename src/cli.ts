@@ -8,7 +8,8 @@ async function run(argv) {
     .exclude(['meta', 'semver', 'system', 'http', 'patching', 'package-manager'])
     .create();
 
-  return cli.run(argv);
+  const toolbox = await cli.run(argv);
+  return toolbox;
 }
 
 module.exports = { run };

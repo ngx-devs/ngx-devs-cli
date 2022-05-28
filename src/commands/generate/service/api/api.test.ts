@@ -3,7 +3,7 @@ import { filesystem } from 'gluegun';
 import { runNgxdCLI } from '../../../../utils/cli-test-setup';
 
 describe('Commands: [Generate] => [Service] => [Api]', () => {
-  const name = 'gsc';
+  const name = 'gsa';
 
   beforeEach(() => {
     jest.useFakeTimers();
