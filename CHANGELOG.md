@@ -1,10 +1,16 @@
 # Changelog
 
-<a name="next"></a>
-## next
+<a name="1.10.1"></a>
+## 1.10.1 (2022-05-28)
+
+### Fixed
+
+- 🐛 fix: cli startup code [[340f673](https://github.com/ngx-devs/ngx-devs-cli/commit/340f67318b92e837bbd5c5dcbedf125e800ccd26)]
 
 ### Miscellaneous
 
+-  chore(release): 1.10.1 [skip ci] [[a4bbf70](https://github.com/ngx-devs/ngx-devs-cli/commit/a4bbf7066986298abfb3255b2854094e0cb4dc6a)]
+- 📝 docs: update changelog [skip ci] [[35e5838](https://github.com/ngx-devs/ngx-devs-cli/commit/35e583872c9d938d83592461aacedfd3a5e3371e)]
 - 📝 docs: update changelog [skip ci] [[7876bd6](https://github.com/ngx-devs/ngx-devs-cli/commit/7876bd6c865663cb1ec3b508abd820bc541df9e8)]
 - 📝 docs: update readme file case pattern [[6a47329](https://github.com/ngx-devs/ngx-devs-cli/commit/6a47329db63adcdbdbac9ace9cfbfcc843449ca0)]
 
