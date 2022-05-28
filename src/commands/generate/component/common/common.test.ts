@@ -1,6 +1,6 @@
 import { filesystem } from 'gluegun';
 
-import { cli } from '@ngxd/cli-test-setup';
+import { runNgxdCLI } from '../../../../utils/cli-test-setup';
 
 describe('[Commands: generate common component]', () => {
   beforeEach(() => {
@@ -14,7 +14,7 @@ describe('[Commands: generate common component]', () => {
 
   test('should generate a common component with 3 files', async () => {
     const name = 'sample-with-three-files';
-    await cli(`g c c ${name}`);
+    await runNgxdCLI(`g c c ${name}`);
 
     const html = filesystem.read(`${name}/${name}.component.html`);
     const scss = filesystem.read(`${name}/${name}.component.scss`);
@@ -29,7 +29,7 @@ describe('[Commands: generate common component]', () => {
   test('should generate a common component html with default template <p>sample works</p>', async () => {
     const name = 'sample-with-default-template';
 
-    await cli(`g c c ${name}`);
+    await runNgxdCLI(`g c c ${name}`);
 
     const html = filesystem.read(`${name}/${name}.component.html`);
 
@@ -39,7 +39,7 @@ describe('[Commands: generate common component]', () => {
 
   test('should generate a common component with correct templateUrl: and styleUrls ', async () => {
     const name = 'sample-style-template-url';
-    await cli(`g c c ${name}`);
+    await runNgxdCLI(`g c c ${name}`);
 
     const ts = filesystem.read(`${name}/${name}.component.ts`);
 
