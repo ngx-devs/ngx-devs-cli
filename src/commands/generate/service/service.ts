@@ -11,7 +11,7 @@ const COMMAND: GluegunCommand = {
   run: async (toolbox: GluegunToolbox) => {
     const { parameters, prompt } = toolbox;
 
-    let componentName = parameters.first;
+    const componentName = parameters.first;
 
     const QUESTION = 'Qual tipo de serviço você deseja criar?';
     const TYPES = ['common', 'api'];
@@ -27,7 +27,7 @@ const COMMAND: GluegunCommand = {
     const command = findCommand(toolbox, componentType);
 
     toolbox.parameters.first = componentName;
-    command.run(toolbox);
+    command?.run(toolbox);
   }
 };
 
