@@ -2,7 +2,7 @@ import { filesystem } from 'gluegun';
 
 import { runNgxdCLI } from '../../../../utils/cli-test-setup';
 
-describe('[Commands: generate page component]', () => {
+describe('Commands: [Generate] => [Component] => [Page]', () => {
   const name = 'gpc';
 
   beforeEach(() => {

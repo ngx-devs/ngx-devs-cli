@@ -2,7 +2,7 @@ import { filesystem } from 'gluegun';
 
 import { runNgxdCLI } from '../../../../utils/cli-test-setup';
 
-describe('[Commands: generate dialog component]', () => {
+describe('Commands: [Generate] => [Component] => [Dialog]', () => {
   const name = 'gdc';
 
   beforeEach(() => {

@@ -2,7 +2,7 @@ import { filesystem } from 'gluegun';
 
 import { runNgxdCLI } from '../../../../utils/cli-test-setup';
 
-describe('[Commands: generate widget component]', () => {
+describe('Commands: [Generate] => [Component] => [Widget]', () => {
   const name = 'gwc';
 
   beforeEach(() => {
