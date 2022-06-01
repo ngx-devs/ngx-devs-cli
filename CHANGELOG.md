@@ -1,5 +1,19 @@
 # Changelog
 
+<a name="1.11.1"></a>
+## 1.11.1 (2022-06-01)
+
+### Fixed
+
+- 🐛 fix: generate common component interpolated class name [[8f740fe](https://github.com/ngx-devs/ngx-devs-cli/commit/8f740feccfa595542030f99257e9cac29aa4ae6c)]
+
+### Miscellaneous
+
+-  chore(release): 1.11.1 [skip ci] [[ffc58e5](https://github.com/ngx-devs/ngx-devs-cli/commit/ffc58e5821155e865d8b44c2651e7c8d58007e23)]
+- 🧪 test: update suite name pattern [[789e3b9](https://github.com/ngx-devs/ngx-devs-cli/commit/789e3b98f4ae3f7732d452cbd488e79ac36ab4cb)]
+- 📝 docs: update changelog [skip ci] [[2f08f51](https://github.com/ngx-devs/ngx-devs-cli/commit/2f08f51137a52d5f72cd117fccab057e0182d8ab)]
+
+
 <a name="1.11.0"></a>
 ## 1.11.0 (2022-05-28)
 
