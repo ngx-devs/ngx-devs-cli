@@ -26,6 +26,24 @@ describe('Commands: [Generate] => [Component] => [Common]', () => {
     filesystem.remove(`${name}`);
   });
 
+  test('should generate a common component on provided path', async () => {
+    const name = 'sample-with-path';
+    const baseFolder = 'sample-app';
+    const path = `${baseFolder}/src/app/components`;
+
+    await runNgxdCLI(`g c c ${name} --path ${path}`);
+
+    const html = filesystem.read(`${path}/${name}/${name}.component.html`);
+    const scss = filesystem.read(`${path}/${name}/${name}.component.scss`);
+    const ts = filesystem.read(`${path}/${name}/${name}.component.ts`);
+
+    expect(html).toBeDefined();
+    expect(scss).toBeDefined();
+    expect(ts).toBeDefined();
+
+    filesystem.remove(baseFolder);
+  });
+
   test('should generate a common component html with default template <p>sample works</p>', async () => {
     const name = 'sample-with-default-template';
 

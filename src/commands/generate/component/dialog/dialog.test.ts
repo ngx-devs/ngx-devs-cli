@@ -27,6 +27,24 @@ describe('Commands: [Generate] => [Component] => [Dialog]', () => {
     expect(ts).toBeDefined();
   });
 
+  test('should generate a dialog component on provided path', async () => {
+    const name = 'sample-with-path';
+    const baseFolder = 'sample-app';
+    const path = `${baseFolder}/src/app/components`;
+
+    await runNgxdCLI(`g c d ${name} --path ${path}`);
+
+    const html = filesystem.read(`${path}/${name}/${name}.dialog.html`);
+    const scss = filesystem.read(`${path}/${name}/${name}.dialog.scss`);
+    const ts = filesystem.read(`${path}/${name}/${name}.dialog.ts`);
+
+    expect(html).toBeDefined();
+    expect(scss).toBeDefined();
+    expect(ts).toBeDefined();
+
+    // filesystem.remove(baseFolder);
+  });
+
   test('should generate a dialog component html with default template <p>sample works</p>', async () => {
     await runNgxdCLI(`g c d ${name}`);
     const html = filesystem.read(`${name}/${name}.dialog.html`);
