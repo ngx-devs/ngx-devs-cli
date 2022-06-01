@@ -1,4 +1,5 @@
-import { filesystem } from 'gluegun';
+import { filesystem, strings } from 'gluegun';
+
 import { runNgxdCLI } from '../../../../utils/cli-test-setup';
 
 describe('Commands: [Generate] => [Component] => [Common]', () => {
@@ -58,7 +59,20 @@ describe('Commands: [Generate] => [Component] => [Common]', () => {
     filesystem.remove(`${name}`);
   });
 
-  test('should not contain ngOnInit on import statment', async () => {
+  test('should properly interpolate component name on spec file', async () => {
+    const name = 'sample-style-template-url';
+    await runNgxdCLI(`g c c ${name}`);
+
+    const ts = filesystem.read(`${name}/${name}.component.spec.ts`);
+
+    const pascalCaseName = strings.pascalCase(name);
+
+    expect(ts).toContain(`describe('${pascalCaseName}Component', () => {`);
+
+    filesystem.remove(`${name}`);
+  });
+
+  test('should not contain ngOnInit on import statement', async () => {
     const name = 'sample-style-template-url';
     await runNgxdCLI(`g c c ${name}`);
 
