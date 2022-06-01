@@ -1,5 +1,18 @@
 # Changelog
 
+<a name="1.11.2"></a>
+## 1.11.2 (2022-06-01)
+
+### Fixed
+
+- 🐛 fix: suport to path parameter on component dialog command [[117b8c8](https://github.com/ngx-devs/ngx-devs-cli/commit/117b8c8012a3bb58d00453e88078d9292b2c4b32)]
+
+### Miscellaneous
+
+-  chore(release): 1.11.2 [skip ci] [[a684c79](https://github.com/ngx-devs/ngx-devs-cli/commit/a684c797920a0546f424a2293d705519c509adef)]
+- 📝 docs: update changelog [skip ci] [[14c8824](https://github.com/ngx-devs/ngx-devs-cli/commit/14c88240405bcf01594f783919f6f06fc79be2cb)]
+
+
 <a name="1.11.1"></a>
 ## 1.11.1 (2022-06-01)
 
