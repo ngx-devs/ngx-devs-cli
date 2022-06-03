@@ -4,6 +4,8 @@ import { runNgxdCLI } from '../../../../utils/cli-test-setup';
 
 describe('Commands: [Generate] => [Service] => [Common]', () => {
   const name = 'gsc';
+  const TESTING_DIR = '__GSC_TEST__';
+  const COMMAND = 'g s c';
 
   beforeEach(() => {
     jest.useFakeTimers();
@@ -15,7 +17,7 @@ describe('Commands: [Generate] => [Service] => [Common]', () => {
   });
 
   test('should generate a common service with 2 files', async () => {
-    await runNgxdCLI(`g s c ${name}`);
+    await runNgxdCLI(`${COMMAND} ${name}`);
 
     const ts = filesystem.read(`${name}/${name}.service.ts`);
     const spec = filesystem.read(`${name}/${name}.service.spec.ts`);
@@ -25,10 +27,24 @@ describe('Commands: [Generate] => [Service] => [Common]', () => {
     filesystem.remove(`${name}`);
   });
 
+  test('should generate a common service at given path', async () => {
+    const path = `${TESTING_DIR}/src/app/services`;
+
+    await runNgxdCLI(`${COMMAND} ${name} --path ${path}`);
+
+    const ts = filesystem.read(`${path}/${name}/${name}.service.ts`);
+    const spec = filesystem.read(`${path}/${name}/${name}.service.spec.ts`);
+
+    expect(ts).toBeDefined();
+    expect(spec).toBeDefined();
+
+    filesystem.remove(TESTING_DIR);
+  });
+
   test('should generate a common service with correct content ', async () => {
     const name = 'fruit';
 
-    await runNgxdCLI(`g s c ${name}`);
+    await runNgxdCLI(`${COMMAND} ${name}`);
 
     const ts = filesystem.read(`${name}/${name}.service.ts`);
     const spec = filesystem.read(`${name}/${name}.service.spec.ts`);

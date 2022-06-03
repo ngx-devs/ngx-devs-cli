@@ -4,6 +4,8 @@ import { runNgxdCLI } from '../../../../utils/cli-test-setup';
 
 describe('Commands: [Generate] => [Service] => [Api]', () => {
   const name = 'gsa';
+  const TESTING_DIR = '__GSA_TEST__';
+  const COMMAND = 'g s a';
 
   beforeEach(() => {
     jest.useFakeTimers();
@@ -15,7 +17,7 @@ describe('Commands: [Generate] => [Service] => [Api]', () => {
   });
 
   test('should generate a api service with 2 files', async () => {
-    await runNgxdCLI(`g s a ${name}`);
+    await runNgxdCLI(`${COMMAND} ${name}`);
 
     const ts = filesystem.read(`${name}/${name}.api.ts`);
     const spec = filesystem.read(`${name}/${name}.api.spec.ts`);
@@ -25,10 +27,24 @@ describe('Commands: [Generate] => [Service] => [Api]', () => {
     filesystem.remove(`${name}`);
   });
 
+  test('should generate a api service at given path', async () => {
+    const path = `${TESTING_DIR}`;
+
+    await runNgxdCLI(`${COMMAND} ${name} --path ${path}`);
+
+    const ts = filesystem.read(`${path}/${name}/${name}.api.ts`);
+    const spec = filesystem.read(`${path}/${name}/${name}.api.spec.ts`);
+
+    expect(ts).toBeDefined();
+    expect(spec).toBeDefined();
+
+    filesystem.remove(TESTING_DIR);
+  });
+
   test('should generate a api service with correct content ', async () => {
     const name = 'fruit';
 
-    await runNgxdCLI(`g s a ${name}`);
+    await runNgxdCLI(`${COMMAND} ${name}`);
 
     const ts = filesystem.read(`${name}/${name}.api.ts`);
     const spec = filesystem.read(`${name}/${name}.api.spec.ts`);

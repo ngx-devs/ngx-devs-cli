@@ -1,8 +1,6 @@
 import { GluegunCommand, GluegunToolbox } from 'gluegun';
 
-import {
-    getComponentName, getComponentPath, printCreated
-} from '../../../../utils/functions.helper';
+import { getComponentName, getEntityPath, printCreated } from '../../../../utils/functions.helper';
 
 const COMMAND: GluegunCommand = {
   name: 'page',
@@ -15,7 +13,7 @@ const COMMAND: GluegunCommand = {
     } = parameters;
 
     const componentName = parameters.first ?? (await getComponentName(prompt));
-    const componentPath = getComponentPath(path, componentName);
+    const componentPath = getEntityPath(path, componentName);
 
     template.generate({
       template: 'component.template.html.ejs',

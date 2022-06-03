@@ -33,6 +33,23 @@ export async function getComponentName(prompt: GluegunPrompt): Promise<string> {
   return strings.kebabCase(response.componentName);
 }
 
-export function getComponentPath(path: any, componentName: string): string {
-  return path ? `${path}/${componentName}/${componentName}` : `./${componentName}/${componentName}`;
+export async function getEntityName(prompt: GluegunPrompt, entityType: string): Promise<string> {
+  const response: GluegunAskResponse = await prompt.ask({
+    type: 'input',
+    name: `${entityType}Name`,
+    message: `Qual o nome do ${entityType}?`,
+    validate: (value: string) => {
+      if (!value) {
+        return `O nome do ${entityType} não pode ser vazio`;
+      }
+
+      return true;
+    }
+  });
+
+  return strings.kebabCase(response[`${entityType}Name`]);
+}
+
+export function getEntityPath(path: any, entityName: string): string {
+  return path ? `${path}/${entityName}/${entityName}` : `./${entityName}/${entityName}`;
 }
