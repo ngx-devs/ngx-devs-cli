@@ -1,5 +1,19 @@
 # Changelog
 
+<a name="1.11.3"></a>
+## 1.11.3 (2022-06-03)
+
+### Fixed
+
+- 🐛 fix: path parameter on service command [[ddc3cba](https://github.com/ngx-devs/ngx-devs-cli/commit/ddc3cba2becceb369b6da2d8122d2786055297fe)]
+
+### Miscellaneous
+
+-  chore(release): 1.11.3 [skip ci] [[66e92bc](https://github.com/ngx-devs/ngx-devs-cli/commit/66e92bc3164218705dae832c4027de164c7b540e)]
+- 🧪 test: add test case for path parameter [[b8cc020](https://github.com/ngx-devs/ngx-devs-cli/commit/b8cc02005300041b8ff4b7b1ca51cd9389cb1c15)]
+- 📝 docs: update changelog [skip ci] [[8dc9abc](https://github.com/ngx-devs/ngx-devs-cli/commit/8dc9abc6edf454eede1e7f3579a5fe9a8724241f)]
+
+
 <a name="1.11.2"></a>
 ## 1.11.2 (2022-06-01)
 
