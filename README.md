@@ -1,3 +1,6 @@
+
+
+
 <div align="center">
 
 ```bash
@@ -37,6 +40,13 @@ A CLI built to modernize, standardize and make it easier to create/update Angula
 
 </p>
 
+<p align="center">
+  <img 
+  alt="CLI Logo with red background" 
+  src="./icon.png"
+  width="250">
+</p>
+
 <p align="center"> 
  <a href="#information_source-about">About</a> •
  <a href="#arrow_forward-installation">Installation</a> •
@@ -45,6 +55,8 @@ A CLI built to modernize, standardize and make it easier to create/update Angula
  <a href="#boy-author">Author</a> •
  <a href="#balance_scale-license">License</a>
 </p>
+
+
 
 ## :information_source: About
 
