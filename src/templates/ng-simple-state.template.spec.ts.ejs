@@ -1,0 +1,26 @@
+import { NgSimpleStateModule } from 'ng-simple-state';
+
+import { TestBed } from '@angular/core/testing';
+
+describe('[Store] => <%= pascalCase(props.type) %>', () => {
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      imports: [
+        NgSimpleStateModule.forRoot({
+          enableDevTool: false,
+          enableLocalStorage: false
+        })
+      ]
+    });
+  });
+
+  it('should successfully get initial state', () => {});
+
+  it('should retrieve all <%= camelCase(props.type) %>s', () => {});
+
+  it('should retrieve a <%= camelCase(props.type) %> by ID', () => {});
+
+  it('should create a <%= camelCase(props.type) %>', () => {});
+
+  it('should delete a <%= camelCase(props.type) %> from the store', () => {});
+});

@@ -12,7 +12,7 @@ const COMMAND: GluegunCommand = {
 
     const GENERATE_MODEL_TYPE_QUESTION = 'Qual o tipo de entidade que você deseja criar?';
 
-    const GENERATE_MODEL_TYPE_OPTIONS = ['component', 'directive', 'guard', 'interceptor', 'module'];
+    const GENERATE_MODEL_TYPE_OPTIONS = ['component', 'directive', 'guard', 'interceptor', 'module', 'store'];
 
     const modelTypeResponse: GluegunAskResponse = await prompt.ask({
       type: 'select',

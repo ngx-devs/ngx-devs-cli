@@ -1,6 +1,3 @@
-
-
-
 <div align="center">
 
 ```bash
@@ -55,8 +52,6 @@ A CLI built to modernize, standardize and make it easier to create/update Angula
  <a href="#boy-author">Author</a> •
  <a href="#balance_scale-license">License</a>
 </p>
-
-
 
 ## :information_source: About
 
@@ -157,6 +152,17 @@ ngxd g s c <service-name>
 ngxd generate service api <service-name>
 # or
 ngxd g s a <service-name>
+```
+
+### Stores
+
+##### :hammer_and_wrench: **ng-simple-state**
+
+```bash
+# create a new ng-simple-state store
+ngxd generate store ng-simple-state <store-name>
+# or
+ngxd g st sst <store-name>
 ```
 
 ## :boy: **Author**

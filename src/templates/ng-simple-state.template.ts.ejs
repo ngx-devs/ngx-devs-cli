@@ -1,0 +1,70 @@
+import { Injectable, Injector } from '@angular/core';
+
+import { NgSimpleStateBaseStore } from 'ng-simple-state';
+import { Observable, switchMap, tap } from 'rxjs';
+
+export interface <%= pascalCase(props.name) %>State {
+  <%= camelCase(props.name) %>s: <%= pascalCase(props.name) %>Response[];
+}
+
+export const <%= props.nameConstantCase %>_INITIAL_STATE: <%= pascalCase(props.name) %>State = {
+  <%= camelCase(props.name) %>s: [],
+};
+
+@Injectable()
+export class <%= pascalCase(props.name) %>Store extends NgSimpleStateBaseStore<<%= pascalCase(props.name) %>State> {
+  constructor(
+    injector: Injector,
+    private readonly <%= camelCase(props.name) %>ApiService: <%= pascalCase(props.name) %>ApiService,        
+  ) {
+    super(injector);
+  }
+
+  initialState(): <%= pascalCase(props.name) %>State {
+    return <%= props.nameConstantCase %>_INITIAL_STATE;
+  }
+
+  create(<%= camelCase(props.name) %>Request: <%= pascalCase(props.name) %>Request): Observable<<%= pascalCase(props.name) %>Response> {
+    return this.<%= camelCase(props.name) %>ApiService.create(<%= camelCase(props.name) %>Request).pipe(
+      tap((<%= camelCase(props.name) %>) => {
+        this.setState((state) => ({ ...state, <%= camelCase(props.name) %>s: [...state.<%= camelCase(props.name) %>s, <%= camelCase(props.name) %>] }));        
+      })
+    );
+  }
+
+  update(<%= camelCase(props.name) %>ID: number, <%= camelCase(props.name) %>Request: <%= pascalCase(props.name) %>Request) {
+    return this.<%= camelCase(props.name) %>ApiService.update(<%= camelCase(props.name) %>ID, <%= camelCase(props.name) %>Request).pipe(
+      tap((<%= camelCase(props.name) %>) => {
+        this.setState((state) => {
+          const target<%= pascalCase(props.name) %>Index = state.<%= camelCase(props.name) %>s.findIndex((item) => item.<%= camelCase(props.name) %>ID === <%= camelCase(props.name) %>ID);
+          const <%= camelCase(props.name) %>s = [...state.<%= camelCase(props.name) %>s];
+          <%= camelCase(props.name) %>s[target<%= pascalCase(props.name) %>Index] = <%= camelCase(props.name) %>;
+          return { ...state, <%= camelCase(props.name) %>s };
+        });        
+      })
+    );
+  }
+
+  remove(<%= camelCase(props.name) %>ID: number) {
+    return this.<%= camelCase(props.name) %>ApiService.remove(<%= camelCase(props.name) %>ID).pipe(
+      tap(() => {
+        this.setState((state) => ({
+          <%= camelCase(props.name) %>s: state.<%= camelCase(props.name) %>s.filter((<%= camelCase(props.name) %>) => <%= camelCase(props.name) %>.<%= camelCase(props.name) %>ID !== <%= camelCase(props.name) %>ID),
+        }));        
+      })
+    );
+  }
+
+  findAll(<%= camelCase(props.name) %>ID: number): Observable<<%= pascalCase(props.name) %>Response[]> {
+    return this.<%= camelCase(props.name) %>ApiService.findAll(+ministryID).pipe(
+      tap((<%= camelCase(props.name) %>s) => {
+        this.setState((state) => ({ ...state, <%= camelCase(props.name) %>s }));
+      }),
+      switchMap(() => this.selectState((state) => state.<%= camelCase(props.name) %>s))
+    );
+  }
+
+  findByID(<%= camelCase(props.name) %>ID: number): Observable<<%= pascalCase(props.name) %>Response> {
+    return this.<%= camelCase(props.name) %>ApiService.findByID(<%= camelCase(props.name) %>ID);
+  }
+}
