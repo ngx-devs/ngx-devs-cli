@@ -3,7 +3,6 @@ import { filesystem } from 'gluegun';
 import { runNgxdCLI } from '../../../../utils/cli-test-setup';
 
 describe('Commands: [Generate] => [Service] => [Api]', () => {
-  const name = 'gsa';
   const TESTING_DIR = '__GSA_TEST__';
   const COMMAND = 'g s a';
 
@@ -16,7 +15,12 @@ describe('Commands: [Generate] => [Service] => [Api]', () => {
     jest.clearAllTimers();
   });
 
+  afterAll(() => {
+    filesystem.remove(TESTING_DIR);
+  });
+
   test('should generate a api service with 2 files', async () => {
+    const name = 'gsa-base-fruit';
     await runNgxdCLI(`${COMMAND} ${name}`);
 
     const ts = filesystem.read(`${name}/${name}.api.ts`);
@@ -28,7 +32,8 @@ describe('Commands: [Generate] => [Service] => [Api]', () => {
   });
 
   test('should generate a api service at given path', async () => {
-    const path = `${TESTING_DIR}`;
+    const name = 'fruit1';
+    const path = `${TESTING_DIR}/services`;
 
     await runNgxdCLI(`${COMMAND} ${name} --path ${path}`);
 
@@ -42,21 +47,22 @@ describe('Commands: [Generate] => [Service] => [Api]', () => {
   });
 
   test('should generate a api service with correct content ', async () => {
-    const name = 'fruit';
+    const name = 'fruit2';
+    const path = `${TESTING_DIR}/services`;
 
-    await runNgxdCLI(`${COMMAND} ${name}`);
+    await runNgxdCLI(`${COMMAND} ${name} --path ${path}`);
 
-    const ts = filesystem.read(`${name}/${name}.api.ts`);
-    const spec = filesystem.read(`${name}/${name}.api.spec.ts`);
+    const ts = filesystem.read(`${path}/${name}/${name}.api.ts`);
+    const spec = filesystem.read(`${path}/${name}/${name}.api.spec.ts`);
 
     expect(ts).toContain(`import { Injectable } from '@angular/core'`);
     expect(ts).toContain(`@Injectable({`);
     expect(ts).toContain(`providedIn: 'root'`);
-    expect(ts).toContain(`export class FruitApi {`);
+    expect(ts).toContain(`export class Fruit2Api {`);
 
-    expect(spec).toContain("describe('FruitApi', () => {");
+    expect(spec).toContain("describe('Fruit2Api', () => {");
     expect(spec).toContain("it('should be created', () => {");
-    expect(spec).toContain('service = TestBed.inject(FruitApi);');
+    expect(spec).toContain('service = TestBed.inject(Fruit2Api);');
 
     filesystem.remove(`${name}`);
   });

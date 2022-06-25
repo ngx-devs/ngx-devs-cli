@@ -3,7 +3,8 @@ import { filesystem } from 'gluegun';
 import { runNgxdCLI } from '../../../../utils/cli-test-setup';
 
 describe('Commands: [Generate] => [Component] => [Dialog]', () => {
-  const name = 'gdc';
+  const TESTING_DIR = '__GDC_TEST__';
+  const COMMAND = 'g c d';
 
   beforeEach(() => {
     jest.useFakeTimers();
@@ -12,11 +13,15 @@ describe('Commands: [Generate] => [Component] => [Dialog]', () => {
 
   afterEach(() => {
     jest.clearAllTimers();
-    filesystem.remove(`${name}`);
   });
 
-  test('should generate a dialog component with 3 files', async () => {
-    await runNgxdCLI(`g c d ${name}`);
+  afterAll(() => {
+    filesystem.remove(TESTING_DIR);
+  });
+
+  test('should generate a dialog component with 3 files', async (done) => {
+    const name = 'gdc-base-fruit';
+    await runNgxdCLI(`${COMMAND} ${name}`);
 
     const html = filesystem.read(`${name}/${name}.dialog.html`);
     const scss = filesystem.read(`${name}/${name}.dialog.scss`);
@@ -25,14 +30,16 @@ describe('Commands: [Generate] => [Component] => [Dialog]', () => {
     expect(html).toBeDefined();
     expect(scss).toBeDefined();
     expect(ts).toBeDefined();
+
+    filesystem.remove(name);
+    done();
   });
 
-  test('should generate a dialog component on provided path', async () => {
-    const name = 'sample-with-path';
-    const baseFolder = 'sample-app';
-    const path = `${baseFolder}/src/app/components`;
+  test('should generate a dialog component on provided path', async (done) => {
+    const path = `${TESTING_DIR}/components`;
+    const name = 'fruit1';
 
-    await runNgxdCLI(`g c d ${name} --path ${path}`);
+    await runNgxdCLI(`${COMMAND} ${name} --path ${path}`);
 
     const html = filesystem.read(`${path}/${name}/${name}.dialog.html`);
     const scss = filesystem.read(`${path}/${name}/${name}.dialog.scss`);
@@ -41,23 +48,30 @@ describe('Commands: [Generate] => [Component] => [Dialog]', () => {
     expect(html).toBeDefined();
     expect(scss).toBeDefined();
     expect(ts).toBeDefined();
-
-    // filesystem.remove(baseFolder);
+    done();
   });
 
-  test('should generate a dialog component html with default template <p>sample works</p>', async () => {
-    await runNgxdCLI(`g c d ${name}`);
-    const html = filesystem.read(`${name}/${name}.dialog.html`);
+  test('should generate a dialog component html with default template <p>fruit2 works</p>', async (done) => {
+    const path = `${TESTING_DIR}/components`;
+    const name = 'fruit2';
 
+    await runNgxdCLI(`${COMMAND} ${name} --path ${path}`);
+
+    const html = filesystem.read(`${path}/${name}/${name}.dialog.html`);
     expect(html).toContain(`<p>${name} works</p>`);
+    done();
   });
 
-  test('should generate a dialog component with correct templateUrl: and styleUrls ', async () => {
-    await runNgxdCLI(`g c d ${name}`);
+  test('should generate a dialog component with correct templateUrl: and styleUrls ', async (done) => {
+    const path = `${TESTING_DIR}/components`;
+    const name = 'fruitThree';
 
-    const ts = filesystem.read(`${name}/${name}.dialog.ts`);
+    await runNgxdCLI(`${COMMAND} ${name} --path ${path}`);
 
-    expect(ts).toContain(`templateUrl: './${name}.dialog.html'`);
-    expect(ts).toContain(`styleUrls: ['./${name}.dialog.scss']`);
+    const ts = filesystem.read(`${path}/${name}/${name}.dialog.ts`);
+
+    expect(ts).toContain(`templateUrl: './fruit-three.dialog.html'`);
+    expect(ts).toContain(`styleUrls: ['./fruit-three.dialog.scss']`);
+    done();
   });
 });

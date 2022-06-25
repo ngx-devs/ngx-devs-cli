@@ -44,7 +44,7 @@ describe('Commands: [Generate] => [Component] => [Common]', () => {
     filesystem.remove(baseFolder);
   });
 
-  test('should generate a common component html with default template <p>sample works</p>', async () => {
+  test('should generate a common component html correct content', async () => {
     const name = 'sample-with-default-template';
 
     await runNgxdCLI(`g c c ${name}`);
@@ -67,7 +67,7 @@ describe('Commands: [Generate] => [Component] => [Common]', () => {
   });
 
   test('should generate a common component with spec file', async () => {
-    const name = 'sample-style-template-url';
+    const name = 'sample-spec';
     await runNgxdCLI(`g c c ${name}`);
 
     const ts = filesystem.read(`${name}/${name}.component.spec.ts`);
@@ -78,7 +78,7 @@ describe('Commands: [Generate] => [Component] => [Common]', () => {
   });
 
   test('should properly interpolate component name on spec file', async () => {
-    const name = 'sample-style-template-url';
+    const name = 'sample-spec-two';
     await runNgxdCLI(`g c c ${name}`);
 
     const ts = filesystem.read(`${name}/${name}.component.spec.ts`);
@@ -91,7 +91,7 @@ describe('Commands: [Generate] => [Component] => [Common]', () => {
   });
 
   test('should not contain ngOnInit on import statement', async () => {
-    const name = 'sample-style-template-url';
+    const name = 'sample-import';
     await runNgxdCLI(`g c c ${name}`);
 
     const ts = filesystem.read(`${name}/${name}.component.ts`);
