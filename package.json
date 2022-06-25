@@ -22,6 +22,7 @@
     "format": "eslint \"**/*.{js,jsx,ts,tsx}\" --fix && prettier \"**/*.{js,jsx,ts,tsx,json}\" --write",
     "test": "jest --verbose",
     "test-watch": "jest --watchAll",
+    "tw": "npm run test-watch",
     "watch": "jest --watch",
     "snapupdate": "jest --updateSnapshot",
     "coverage": "jest --coverage",
