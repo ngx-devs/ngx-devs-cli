@@ -1,5 +1,21 @@
 # Changelog
 
+<a name="1.12.0"></a>
+## 1.12.0 (2022-06-25)
+
+### Added
+
+- ✨ feat: add generate store command [[f08f0be](https://github.com/ngx-devs/ngx-devs-cli/commit/f08f0bef9b3bd9f69199700d12de2b13cf511491)]
+
+### Miscellaneous
+
+-  chore(release): 1.12.0 [skip ci] [[7063331](https://github.com/ngx-devs/ngx-devs-cli/commit/70633318dbbf6fd646d99453c90938a8ac5b5988)]
+- 🧪 test: fix folder name conflict in tests [[6ca75d0](https://github.com/ngx-devs/ngx-devs-cli/commit/6ca75d07202c5112f7b8828523c965723b20f45c)]
+- 🚧 chore(scripts): add test watch shortcut [[5f56116](https://github.com/ngx-devs/ngx-devs-cli/commit/5f561163af55f76b8d421900ec0d6fc941dd979e)]
+- 🚧 chore: add readme logo [[7824b4d](https://github.com/ngx-devs/ngx-devs-cli/commit/7824b4d435c322cd141d4629f6fa95b83f227fed)]
+- 📝 docs: update changelog [skip ci] [[cbd2e55](https://github.com/ngx-devs/ngx-devs-cli/commit/cbd2e55fd3835f3cc51f2d243bef60f523f251b7)]
+
+
 <a name="1.11.3"></a>
 ## 1.11.3 (2022-06-03)
 
