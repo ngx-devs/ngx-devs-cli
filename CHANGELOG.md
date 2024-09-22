@@ -1,5 +1,18 @@
 # Changelog
 
+<a name="1.13.0"></a>
+## 1.13.0 (2024-09-22)
+
+### Added
+
+- ✨ feat: add standalone component as default [[47f6f2e](https://github.com/ngx-devs/ngx-devs-cli/commit/47f6f2e9c6552318185ec9181815f8d4324f15cf)]
+
+### Miscellaneous
+
+-  chore(release): 1.13.0 [skip ci] [[013eaef](https://github.com/ngx-devs/ngx-devs-cli/commit/013eaefa1a66f6d9286c25e43b3b988cb7bf2969)]
+- 📝 docs: update changelog [skip ci] [[ed28161](https://github.com/ngx-devs/ngx-devs-cli/commit/ed281611e83c02d364eeab4647a078ded0da4a42)]
+
+
 <a name="1.12.0"></a>
 ## 1.12.0 (2022-06-25)
 
