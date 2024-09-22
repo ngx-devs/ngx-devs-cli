@@ -3,6 +3,9 @@ import { filesystem } from 'gluegun';
 import { runNgxdCLI } from '../../../../utils/cli-test-setup';
 
 describe('Commands: [Generate] => [Component] => [Page]', () => {
+  const TESTING_DIR = '__GWC_TEST__';
+  const COMMAND = 'g c p';
+
   beforeEach(() => {
     jest.useFakeTimers();
     jest.setTimeout(100000);
@@ -10,29 +13,13 @@ describe('Commands: [Generate] => [Component] => [Page]', () => {
 
   afterEach(() => {
     jest.clearAllTimers();
+    filesystem.remove(TESTING_DIR);
   });
 
   test('should generate a page component with 3 files', async () => {
-    const name = 'base-gcp-fruit';
-    await runNgxdCLI(`g c p ${name}`);
-
-    const html = filesystem.read(`${name}/${name}.page.html`);
-    const scss = filesystem.read(`${name}/${name}.page.scss`);
-    const ts = filesystem.read(`${name}/${name}.page.ts`);
-
-    expect(html).toBeDefined();
-    expect(scss).toBeDefined();
-    expect(ts).toBeDefined();
-
-    filesystem.remove(name);
-  });
-
-  test('should generate a page component on provided path', async () => {
-    const name = 'sample-with-path';
-    const baseFolder = 'sample-app';
-    const path = `${baseFolder}/src/app/components`;
-
-    await runNgxdCLI(`g c p ${name} --path ${path}`);
+    const path = `${TESTING_DIR}/components`;
+    const name = 'gcp-3-files';
+    await runNgxdCLI(`${COMMAND} ${name} --path ${path}`);
 
     const html = filesystem.read(`${path}/${name}/${name}.page.html`);
     const scss = filesystem.read(`${path}/${name}/${name}.page.scss`);
@@ -42,26 +29,43 @@ describe('Commands: [Generate] => [Component] => [Page]', () => {
     expect(scss).toBeDefined();
     expect(ts).toBeDefined();
 
-    filesystem.remove(baseFolder);
+    filesystem.remove(TESTING_DIR);
   });
 
   test('should generate a page component html with default template <p>sample works</p>', async () => {
-    const name = 'sample-with-default-template';
-    await runNgxdCLI(`g c p ${name}`);
-    const html = filesystem.read(`${name}/${name}.page.html`);
+    const path = `${TESTING_DIR}/components`;
+    const name = 'gcp-default-template';
+    await runNgxdCLI(`${COMMAND} ${name} --path ${path}`);
+
+    const html = filesystem.read(`${path}/${name}/${name}.page.html`);
 
     expect(html).toContain(`<p>${name} works</p>`);
-    filesystem.remove(name);
+
+    filesystem.remove(TESTING_DIR);
   });
 
   test('should generate a page component with correct templateUrl: and styleUrls ', async () => {
-    const name = 'sample-style-template-url';
-    await runNgxdCLI(`g c p ${name}`);
+    const path = `${TESTING_DIR}/components`;
+    const name = 'gcp-template-style';
+    await runNgxdCLI(`${COMMAND} ${name} --path ${path}`);
 
-    const ts = filesystem.read(`${name}/${name}.page.ts`);
+    const ts = filesystem.read(`${path}/${name}/${name}.page.ts`);
 
     expect(ts).toContain(`templateUrl: './${name}.page.html'`);
     expect(ts).toContain(`styleUrls: ['./${name}.page.scss']`);
-    filesystem.remove(name);
+
+    filesystem.remove(TESTING_DIR);
+  });
+
+  test('should contain  "standalone: true" on component decorator by default', async () => {
+    const path = `${TESTING_DIR}/components`;
+    const name = 'gcp-standalone-true';
+    await runNgxdCLI(`${COMMAND} ${name} --path ${path}`);
+
+    const ts = filesystem.read(`${path}/${name}/${name}.page.ts`);
+
+    expect(ts).toContain(`standalone: true`);
+
+    filesystem.remove(TESTING_DIR);
   });
 });

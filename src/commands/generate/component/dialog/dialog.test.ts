@@ -11,15 +11,12 @@ describe('Commands: [Generate] => [Component] => [Dialog]', () => {
     jest.setTimeout(100000);
   });
 
-  afterEach(() => {
-    jest.clearAllTimers();
-  });
-
   afterAll(() => {
+    jest.clearAllTimers();
     filesystem.remove(TESTING_DIR);
   });
 
-  test('should generate a dialog component with 3 files', async (done) => {
+  test('should generate a dialog component with 3 files', async () => {
     const name = 'gdc-base-fruit';
     await runNgxdCLI(`${COMMAND} ${name}`);
 
@@ -32,12 +29,11 @@ describe('Commands: [Generate] => [Component] => [Dialog]', () => {
     expect(ts).toBeDefined();
 
     filesystem.remove(name);
-    done();
   });
 
-  test('should generate a dialog component on provided path', async (done) => {
+  test('should generate a dialog component on provided path', async () => {
     const path = `${TESTING_DIR}/components`;
-    const name = 'fruit1';
+    const name = 'gdc-provided-path';
 
     await runNgxdCLI(`${COMMAND} ${name} --path ${path}`);
 
@@ -48,30 +44,27 @@ describe('Commands: [Generate] => [Component] => [Dialog]', () => {
     expect(html).toBeDefined();
     expect(scss).toBeDefined();
     expect(ts).toBeDefined();
-    done();
   });
 
-  test('should generate a dialog component html with default template <p>fruit2 works</p>', async (done) => {
+  test('should generate a dialog component html with default template <p>gdc-default-template works</p>', async () => {
     const path = `${TESTING_DIR}/components`;
-    const name = 'fruit2';
+    const name = 'gdc-default-template';
 
     await runNgxdCLI(`${COMMAND} ${name} --path ${path}`);
 
     const html = filesystem.read(`${path}/${name}/${name}.dialog.html`);
     expect(html).toContain(`<p>${name} works</p>`);
-    done();
   });
 
-  test('should generate a dialog component with correct templateUrl: and styleUrls ', async (done) => {
+  test('should generate a dialog component with correct templateUrl: and styleUrls ', async () => {
     const path = `${TESTING_DIR}/components`;
-    const name = 'fruitThree';
+    const name = 'gdc-template-style';
 
     await runNgxdCLI(`${COMMAND} ${name} --path ${path}`);
 
     const ts = filesystem.read(`${path}/${name}/${name}.dialog.ts`);
 
-    expect(ts).toContain(`templateUrl: './fruit-three.dialog.html'`);
-    expect(ts).toContain(`styleUrls: ['./fruit-three.dialog.scss']`);
-    done();
+    expect(ts).toContain(`templateUrl: './${name}.dialog.html'`);
+    expect(ts).toContain(`styleUrls: ['./${name}.dialog.scss']`);
   });
 });

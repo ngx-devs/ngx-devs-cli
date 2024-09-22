@@ -14,6 +14,7 @@ describe('Commands: [Generate] => [Service] => [Common]', () => {
 
   afterEach(() => {
     jest.clearAllTimers();
+    filesystem.remove(TESTING_DIR);
   });
 
   test('should generate a common service with 2 files', async () => {
@@ -24,7 +25,7 @@ describe('Commands: [Generate] => [Service] => [Common]', () => {
 
     expect(ts).toBeDefined();
     expect(spec).toBeDefined();
-    filesystem.remove(`${name}`);
+    filesystem.remove(name);
   });
 
   test('should generate a common service at given path', async () => {
@@ -58,6 +59,18 @@ describe('Commands: [Generate] => [Service] => [Common]', () => {
     expect(spec).toContain("it('should be created', () => {");
     expect(spec).toContain('service = TestBed.inject(FruitService);');
 
+    filesystem.remove(`${name}`);
+  });
+
+  test('should contain  "standalone: true" on service decorator by default', async () => {
+    const path = `${TESTING_DIR}/src/app/services`;
+    const name = 'gsa-standalone-true';
+
+    await runNgxdCLI(`${COMMAND} ${name} --path ${path}`);
+
+    const ts = filesystem.read(`${path}/${name}/${name}.service.ts`);
+
+    expect(ts).toContain(`standalone: true`);    
     filesystem.remove(`${name}`);
   });
 });

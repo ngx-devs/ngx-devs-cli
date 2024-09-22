@@ -17,39 +17,28 @@ const COMMAND: GluegunCommand = {
 
     template.generate({
       template: 'component.template.html.ejs',
-      target: `${componentPath}.component.html`,
+      target: `${componentPath}.widget.html`,
       props: { name: componentName, ...strings }
     });
 
     template.generate({
       template: 'component.template.scss.ejs',
-      target: `${componentPath}.component.scss`
+      target: `${componentPath}.widget.scss`
     });
 
     template.generate({
       template: 'component.template.ts.ejs',
-      target: `${componentPath}.component.ts`,
+      target: `${componentPath}.widget.ts`,
       props: {
-        type: 'component',
+        type: 'widget',
         name: componentName,
         ...strings
       }
     });
 
-    template.generate({
-      template: 'widget.module.template.ts.ejs',
-      target: `${componentPath}.widget.module.ts`,
-      props: {
-        type: 'component',
-        name: componentName,
-        ...strings
-      }
-    });
-
-    printCreated(print, `${componentPath}.component.html`);
-    printCreated(print, `${componentPath}.component.scss`);
-    printCreated(print, `${componentPath}.component.ts`);
-    printCreated(print, `${componentPath}.widget.module.ts`);
+    printCreated(print, `${componentPath}.widget.html`);
+    printCreated(print, `${componentPath}.widget.scss`);
+    printCreated(print, `${componentPath}.widget.ts`);
   }
 };
 

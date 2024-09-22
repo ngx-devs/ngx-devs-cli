@@ -12,11 +12,8 @@ describe('Commands: [Generate] => [Store] => [NgSimpleState]', () => {
     jest.setTimeout(100000);
   });
 
-  afterEach(() => {
-    jest.clearAllTimers();
-  });
-
   afterAll(() => {
+    jest.clearAllTimers();
     filesystem.remove(TESTING_DIR);
   });
 

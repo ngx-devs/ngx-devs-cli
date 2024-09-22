@@ -11,30 +11,14 @@ describe('Commands: [Generate] => [Service] => [Api]', () => {
     jest.setTimeout(100000);
   });
 
-  afterEach(() => {
-    jest.clearAllTimers();
-  });
-
   afterAll(() => {
+    jest.clearAllTimers();
     filesystem.remove(TESTING_DIR);
   });
 
   test('should generate a api service with 2 files', async () => {
-    const name = 'gsa-base-fruit';
-    await runNgxdCLI(`${COMMAND} ${name}`);
-
-    const ts = filesystem.read(`${name}/${name}.api.ts`);
-    const spec = filesystem.read(`${name}/${name}.api.spec.ts`);
-
-    expect(ts).toBeDefined();
-    expect(spec).toBeDefined();
-    filesystem.remove(`${name}`);
-  });
-
-  test('should generate a api service at given path', async () => {
-    const name = 'fruit1';
     const path = `${TESTING_DIR}/services`;
-
+    const name = 'gsa-2-files';
     await runNgxdCLI(`${COMMAND} ${name} --path ${path}`);
 
     const ts = filesystem.read(`${path}/${name}/${name}.api.ts`);
@@ -42,14 +26,23 @@ describe('Commands: [Generate] => [Service] => [Api]', () => {
 
     expect(ts).toBeDefined();
     expect(spec).toBeDefined();
+  });
 
-    filesystem.remove(TESTING_DIR);
+  test('should generate a api service at given path', async () => {
+    const path = `${TESTING_DIR}/services`;
+    const name = 'gsa-provided-path';
+    await runNgxdCLI(`${COMMAND} ${name} --path ${path}`);
+
+    const ts = filesystem.read(`${path}/${name}/${name}.api.ts`);
+    const spec = filesystem.read(`${path}/${name}/${name}.api.spec.ts`);
+
+    expect(ts).toBeDefined();
+    expect(spec).toBeDefined();
   });
 
   test('should generate a api service with correct content ', async () => {
-    const name = 'fruit2';
     const path = `${TESTING_DIR}/services`;
-
+    const name = 'gsa-correct-content';
     await runNgxdCLI(`${COMMAND} ${name} --path ${path}`);
 
     const ts = filesystem.read(`${path}/${name}/${name}.api.ts`);
@@ -58,12 +51,20 @@ describe('Commands: [Generate] => [Service] => [Api]', () => {
     expect(ts).toContain(`import { Injectable } from '@angular/core'`);
     expect(ts).toContain(`@Injectable({`);
     expect(ts).toContain(`providedIn: 'root'`);
-    expect(ts).toContain(`export class Fruit2Api {`);
+    expect(ts).toContain(`export class GsaCorrectContentApi {`);
 
-    expect(spec).toContain("describe('Fruit2Api', () => {");
+    expect(spec).toContain("describe('GsaCorrectContentApi', () => {");
     expect(spec).toContain("it('should be created', () => {");
-    expect(spec).toContain('service = TestBed.inject(Fruit2Api);');
+    expect(spec).toContain('service = TestBed.inject(GsaCorrectContentApi);');
+  });
 
-    filesystem.remove(`${name}`);
+  test('should contain  "standalone: true" on service decorator by default', async () => {
+    const path = `${TESTING_DIR}/services`;
+    const name = 'gsa-standalone-true';
+    await runNgxdCLI(`${COMMAND} ${name} --path ${path}`);
+
+    const ts = filesystem.read(`${path}/${name}/${name}.api.ts`);
+
+    expect(ts).toContain(`standalone: true`);
   });
 });
